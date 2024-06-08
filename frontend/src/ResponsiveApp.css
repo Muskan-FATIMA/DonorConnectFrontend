@@ -1,0 +1,981 @@
+/* ---------------------- FOR SMALL-SIZED SCREENS ---------------------------- */
+
+/* -------- Declaring Variables Start --------- */
+:root {
+  /* ------- COLORS -------- */
+  --background: linear-gradient(
+    to left,
+    rgb(255, 171, 175),
+    rgb(252, 112, 119)
+  );
+  --red-color: rgb(192, 13, 13);
+  --dark-color: #7a0a0a;
+  --light-color: #fbeada;
+  --white: rgb(255, 253, 255);
+  --black: rgb(0, 0, 0);
+  /* ------- HEIGHT -------- */
+  --height-80: 80vh;
+  --height-full-container: 100%;
+  --height-half-container: 50%;
+  /* ------- WIDTH -------- */
+  --width-30: 30vw;
+  --width-60: 60vw;
+  --width-full-container: 100%;
+  --width-quarter-container: 70%;
+  --width-half-container: 50%;
+  /* ------- MARGIN -------- */
+  --margin-auto: auto;
+  --margin-negative: -0.5vw;
+  --margin-1: 1vw;
+  --margin-2: 2vw;
+  --margin-3: 3vw;
+  --margin-4: 4vw;
+  --margin-5: 5vw;
+  --margin-6: 6vw;
+  --margin-input: 0.3vw 0 1.3vw 0;
+  /* ------- PADDING -------- */
+  --padding-1: 1vw;
+  --padding-2: 2vw;
+  --padding-3: 3vw;
+  --padding-4: 4vw;
+  --padding-5: 5vw;
+  --padding-6: 6vw;
+  --padding-input: 0.6vw 1vw;
+  --padding-btn: 0.8vw;
+  /* ------- FONT-SIZE -------- */
+  --large-font-size: 1.5vw;
+  --medium-font-size: 1.3vw;
+  --small-font-size: 0.9vw;
+  --very-small-font-size: 0.7vw;
+  /* ------- FONT-WEIGHT -------- */
+  --bold-font-weight: bold;
+  --bolder-font-weight: bolder;
+  /* ------- LETTER-SPACING -------- */
+  --letter-spacing-more: 3px;
+  --letter-spacing-less: 1.3px;
+  /* ------- BORDER-RADIUS -------- */
+  --border-radius: 0.3vw;
+  --circle-container: 50%;
+  /* ------- TRANSITION -------- */
+  --transition-duration: 0.3s;
+  /* ------- BOX-SHADOW -------- */
+  --box-shadow: 4px 4px 10px 0 var(--dark-color);
+}
+/* -------- Declaring Variables End --------- */
+
+/* -------- Navbar ------- */
+@media screen and (max-width: 1200px) {
+  header {
+    padding: 2rem 1rem;
+  }
+  .nav-links-large a {
+    font-size: 1.05rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .logo-container {
+    width: 55px;
+    height: 55px;
+  }
+  .nav-links-large a {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  header {
+    padding: 2rem 0.5rem;
+  }
+  .nav-links-large a {
+    margin: 0 0.5rem;
+  }
+  .profile-icon-large svg {
+    width: 35px;
+    height: 35px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    padding: 2rem 3rem;
+  }
+  .nav-links-large {
+    display: none;
+  }
+  .profile-icon-large {
+    display: none;
+  }
+  .nav-container-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile-icon-small svg {
+    width: 35px;
+    height: 35px;
+    color: var(--red-color);
+    animation: slideLeft 1s ease forwards;
+  }
+  .hamburger-container svg {
+    font-size: 1.8rem;
+    color: var(--red-color);
+    margin-left: 1rem;
+    animation: slideLeft 1s ease forwards;
+  }
+  .nav-links-small {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 1.8rem;
+    background-color: var(--light-color);
+    box-shadow: 0px 2px 5px 0 var(--dark-color);
+  }
+  .nav-links-small {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-links-small a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+    color: var(--red-color);
+    font-weight: 500;
+    transition: 0.5s;
+    animation: slideTop 0.5s ease forwards;
+  }
+}
+@media screen and (max-width: 480px) {
+  header {
+    padding: 2rem 0.5rem;
+  }
+}
+@keyframes slideTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+/* -------- Welcome Section ------- */
+@media screen and (max-width: 1200px) {
+  .welcome-content h1 {
+    font-size: 3.2rem;
+  }
+  .welcome-content h3 {
+    font-size: 2.2rem;
+  }
+  .welcome-para {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .welcome-section-main-container {
+    padding: 0 5%;
+  }
+  .welcome-content h1 {
+    font-size: 3rem;
+  }
+  .welcome-content h3 {
+    font-size: 2rem;
+  }
+
+  .welcome-section-register-btn,
+  .welcome-section-login-btn {
+    padding: 3% 5%;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .welcome-content {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .welcome-content h1 {
+    font-size: 2.7rem;
+  }
+  .welcome-content span {
+    font-size: 3.5rem;
+  }
+  .welcome-para1 {
+    font-size: 1.5rem;
+  }
+  .welcome-section-btns {
+    justify-content: center;
+    width: 100%;
+  }
+  .welcome-section-register-btn,
+  .welcome-section-login-btn {
+    padding: 2% 5%;
+    font-size: 1.4rem;
+  }
+  .welcome-img {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .welcome-content h3 {
+    font-size: 2rem;
+  }
+  .welcome-content span {
+    font-size: 2.6rem;
+  }
+  .welcome-para {
+    font-size: 1.2rem;
+  }
+  .welcome-section-btns {
+    flex-direction: column;
+  }
+  .welcome-section-register-btn,
+  .welcome-section-login-btn {
+    font-size: 1.2rem;
+    padding: 4% 7%;
+    margin: 0 0 1rem 0;
+  }
+}
+/* -------- About Section and Success Stories Section ------- */
+@media screen and (max-width: 1200px) {
+  .about-section-top-slogan {
+    padding: 3rem 4rem;
+  }
+  .about-content-para {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .about-content {
+    padding: 0 3rem;
+    width: 60%;
+  }
+  .success-stories-card {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .about-content {
+    width: 100%;
+  }
+  .about-image-container {
+    width: 80%;
+  }
+  .quotation p {
+    font-size: 1.2rem;
+  }
+  .success-stories-heading {
+    font-size: 2.5rem;
+  }
+  .success-stories-card-container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-section-top-slogan {
+    padding: 3rem 2rem;
+  }
+  .success-stories-heading {
+    font-size: 2rem;
+  }
+  .success-stories-card {
+    width: 80%;
+  }
+  .about-section {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-section-top-slogan {
+    padding: 3rem 3rem;
+    margin: 0 3rem 0 3rem;
+  }
+  .about-section-top-slogan-btn {
+    padding: 3% 5%;
+    margin-top: 8%;
+  }
+  .about-content {
+    padding: 0px 0rem;
+  }
+  .about-image-container {
+    width: 100%;
+  }
+  .quotation p {
+    font-size: 1rem;
+  }
+  .success-stories-heading {
+    font-size: 1.8rem;
+  }
+  .success-stories-card {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+}
+
+/* -------- Footer ------- */
+@media screen and (max-width: 1200px) {
+  .footer-division:nth-child(3) {
+    flex-basis: 35%;
+  }
+  .company-name {
+    font-size: 1.05rem;
+  }
+  .company-tagline {
+    font-size: 0.8rem;
+  }
+  .footer-nav-links-container h2 {
+    font-size: 1.05rem;
+  }
+  .footer-nav-links a {
+    font-size: 0.8rem;
+  }
+  .subscribe-newsletter {
+    font-size: 1.05rem;
+  }
+  .newsletter-container input {
+    font-size: 0.8rem;
+  }
+  .social-links-container h2 {
+    font-size: 1.05rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  .company-name {
+    font-size: 1rem;
+  }
+  .company-tagline {
+    font-size: 0.7rem;
+  }
+  .footer-nav-links-container h2 {
+    font-size: 1rem;
+  }
+  .footer-nav-links a {
+    font-size: 0.7rem;
+  }
+  .subscribe-newsletter {
+    font-size: 1rem;
+  }
+  .newsletter-container input {
+    font-size: 0.7rem;
+  }
+  .social-links-container h2 {
+    font-size: 1rem;
+  }
+  .copyright {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .company-name {
+    margin-bottom: 1rem;
+  }
+  .company-tagline {
+    margin-bottom: 1.5rem;
+  }
+  .footer-nav-links-container h2 {
+    margin-bottom: 1rem;
+  }
+  .newsletter-container {
+    margin-top: 1rem;
+    padding-bottom: 0.1rem;
+  }
+  .social-links-container h2 {
+    margin-bottom: 1rem;
+  }
+  .footer-division {
+    flex-basis: 100%;
+  }
+  .footer-division:nth-child(3) {
+    flex-basis: 100%;
+  }
+}
+
+/* -------- Educational Resources Page ------- */
+@media screen and (max-width: 1200px) {
+  .blood-type-compatibility .desc,
+  .who-can-donate-blood .desc,
+  .benefits-of-donating-blood .desc,
+  .donation-process .desc,
+  .after-donating-blood .desc {
+    width: 90%;
+  }
+  .blood-type-compatibility div,
+  .who-can-donate-blood div,
+  .benefits-of-donating-blood div,
+  .donation-process .another-another-div,
+  .after-donating-blood div {
+    gap: 3rem;
+  }
+  .blood-type-compatibility p,
+  .who-can-donate-blood ul,
+  .benefits-of-donating-blood ul,
+  .donation-process p,
+  .after-donating-blood ul {
+    width: 50%;
+  }
+  .blood-type-compatibility img,
+  .who-can-donate-blood img,
+  .benefits-of-donating-blood img,
+  .donation-process img,
+  .after-donating-blood img {
+    width: 50%;
+  }
+  .donation-process h6 {
+    margin: 2rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .blood-type-compatibility h1,
+  .who-can-donate-blood h1,
+  .benefits-of-donating-blood h1,
+  .donation-process h1,
+  .after-donating-blood h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .blood-type-compatibility .desc,
+  .who-can-donate-blood .desc,
+  .benefits-of-donating-blood .desc,
+  .donation-process .desc,
+  .after-donating-blood .desc {
+    font-size: 1rem;
+  }
+  .blood-type-compatibility div {
+    flex-direction: column-reverse;
+  }
+  .who-can-donate-blood div {
+    flex-direction: column;
+  }
+  .benefits-of-donating-blood div {
+    flex-direction: column-reverse;
+  }
+  .donation-process .another-another-div:nth-child(odd) {
+    flex-direction: column-reverse;
+  }
+  .donation-process .another-another-div:nth-child(even) {
+    flex-direction: column;
+  }
+  .after-donating-blood div {
+    flex-direction: column;
+  }
+  .blood-type-compatibility p,
+  .who-can-donate-blood ul,
+  .benefits-of-donating-blood ul,
+  .donation-process p,
+  .after-donating-blood ul {
+    width: 80%;
+    align-self: center;
+    font-size: 0.9rem;
+  }
+  .blood-type-compatibility img,
+  .who-can-donate-blood img,
+  .benefits-of-donating-blood img,
+  .donation-process img,
+  .after-donating-blood img {
+    width: 60%;
+  }
+  .donation-process h6 {
+    font-size: 115rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .blood-type-compatibility,
+  .who-can-donate-blood,
+  .benefits-of-donating-blood,
+  .donation-process,
+  .after-donating-blood {
+    padding: 2rem 0;
+  }
+  .blood-type-compatibility h1,
+  .who-can-donate-blood h1,
+  .benefits-of-donating-blood h1,
+  .donation-process h1,
+  .after-donating-blood h1 {
+    font-size: 1.6rem;
+  }
+  .blood-type-compatibility .desc,
+  .who-can-donate-blood .desc,
+  .benefits-of-donating-blood .desc,
+  .donation-process .desc,
+  .after-donating-blood .desc {
+    font-size: 0.9rem;
+  }
+  .blood-type-compatibility img,
+  .who-can-donate-blood img,
+  .benefits-of-donating-blood img,
+  .donation-process img,
+  .after-donating-blood img {
+    width: 80%;
+  }
+  .blood-type-compatibility p,
+  .who-can-donate-blood ul,
+  .benefits-of-donating-blood ul,
+  .donation-process p,
+  .after-donating-blood ul {
+    font-size: 0.8rem;
+  }
+  .donation-process h6 {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .blood-type-compatibility h1,
+  .who-can-donate-blood h1,
+  .benefits-of-donating-blood h1,
+  .donation-process h1,
+  .after-donating-blood h1 {
+    font-size: 1.4rem;
+  }
+  .blood-type-compatibility .desc,
+  .who-can-donate-blood .desc,
+  .benefits-of-donating-blood .desc,
+  .donation-process .desc,
+  .after-donating-blood .desc {
+    font-size: 0.8rem;
+    width: 95%;
+  }
+  .blood-type-compatibility img,
+  .who-can-donate-blood img,
+  .benefits-of-donating-blood img,
+  .donation-process img,
+  .after-donating-blood img {
+    width: 90%;
+  }
+  .blood-type-compatibility p,
+  .who-can-donate-blood ul,
+  .benefits-of-donating-blood ul,
+  .donation-process p,
+  .after-donating-blood ul {
+    font-size: 0.75rem;
+    width: 85%;
+  }
+  .donation-process h6 {
+    font-size: 1rem;
+  }
+}
+
+/* --------view-request-page-------- */
+
+@media screen and (max-width: 1200px) {
+  .view-request-cards {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .view-request-cards {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .view-request-container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .view-request-cards {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+  .view-request-heading {
+    font-size: 2rem;
+  }
+  .view-request-accept-btn {
+    font-size: 1rem;
+  }
+  .view-request-share-btn {
+    font-size: 1rem;
+  }
+}
+
+/* -----------account-successfully-created------- */
+@media screen and (max-width: 1200px) {
+  .account-created-msg-container {
+    width: 60%;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 1020px) {
+  .account-created-msg-container {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .account-created-msg-container {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+  .acc-cont-btn {
+    padding: 3% 5%;
+    font-size: 1rem;
+  }
+}
+
+/* -------- Profile Form Page ------- */
+@media screen and (max-width: 1200px) {
+  .profile-form {
+    width: 80%;
+  }
+  .profile-form-container {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .profile-form-heading {
+    font-size: 1.5rem;
+  }
+  .profile-form label {
+    font-size: 0.9rem;
+  }
+  .profile-form input {
+    font-size: 0.7rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+  .age {
+    font-size: 0.7rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+  .profile-form .gender {
+    margin: 0.5rem;
+  }
+  .bld-grp {
+    font-size: 0.7rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+  .profile-form-done-btn {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .profile-form-heading {
+    font-size: 1rem;
+  }
+  .profile-form-container {
+    width: 100%;
+  }
+  .profile-form-page-container {
+    padding: 0;
+  }
+}
+
+/* -------- Profile Page ------- */
+
+@media screen and (max-width: 1200px) {
+  .feedback-btn,
+  .myactivity-btn {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .profile-page-heading {
+    font-size: 2rem;
+  }
+  .profile-container {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .feedback-btn,
+  .myactivity-btn {
+    width: 30%;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    margin-top: 0.5rem;
+  }
+  .profile-container {
+    margin: 1rem;
+  }
+  .profile-details-page-container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .edit-profile-btn,
+  .logout-btn {
+    margin: 1rem;
+    font-size: 0.9rem;
+    width: 50%;
+  }
+  .profile-details {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .profile-page-heading {
+    font-size: 1.5rem;
+  }
+  .feedback-btn,
+  .myactivity-btn {
+    width: 35%;
+    padding: 0.5rem 0rem 0.5rem 0;
+    font-size: 0.7rem;
+  }
+}
+/* --------my-activity Page ------- */
+@media screen and (max-width: 1024px) {
+  .achievements-container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .achievements-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .congratulation-msg-container {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .achievements-container {
+    margin: 1rem;
+  }
+
+  .achievements-heading {
+    font-size: 1.5rem;
+  }
+  .congratulation-msg-container {
+    padding: 1.2rem;
+  }
+}
+/* --------feedback Page ------- */
+@media screen and (max-width: 1200px) {
+  .feedback-main-container {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .feedback-main-container {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .feedback-main-container {
+    width: 80%;
+  }
+  .feedback-heading {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .feedback-main-container {
+    width: 90%;
+  }
+  .feedback-heading {
+    font-size: 1.3rem;
+  }
+  .feedback-form label {
+    font-size: 1rem;
+  }
+  .feedback-form input {
+    font-size: 0.7rem;
+  }
+  .feedback-msg-box {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+  }
+  .feedback-done-btn,
+  .feedback-cancel-btn {
+    width: 40%;
+    font-size: 1rem;
+  }
+}
+
+/* ------add-request-page---------- */
+@media screen and (max-width: 1200px) {
+  .add-request-page-container {
+    background: var(--background);
+    align-items: center;
+  }
+  .add-request-form-container {
+    width: 70%;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .add-request-form-container label {
+    font-size: 1rem;
+  }
+
+  .request-btn,
+  .cancel-request-btn {
+    margin: 1.5rem 3rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .add-request-form-container {
+    width: 80%;
+    padding: 2rem;
+  }
+  .add-request-form {
+    padding: 0;
+  }
+  .add-request-form-container input {
+    font-size: 0.6rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+  .add-request-form-container textarea {
+    font-size: 0.6rem;
+    padding: 0.2rem;
+  }
+  .add-request-form-container label {
+    font-size: 0.9rem;
+  }
+  .request-btn,
+  .cancel-request-btn {
+    font-size: 1rem;
+    margin: 1.5rem 2rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .add-request-form-container {
+    width: 90%;
+  }
+  .request-btn,
+  .cancel-request-btn {
+    font-size: 0.9rem;
+    margin: 1.2rem 1.8rem;
+    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+  }
+}
+/* ---------register/login-page-----------  */
+@media screen and (max-width: 1200px) {
+  .register-page-form-container,
+  .login-page-form-container {
+    width: 70%;
+  }
+  .register-page-heading,
+  .login-page-heading {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .register-page-form-container,
+  .login-page-form-container {
+    width: 80%;
+  }
+  .register-page-container,
+  .login-page-container {
+    width: 70%;
+  }
+  .register-page-heading,
+  .login-page-heading {
+    font-size: 1rem;
+  }
+  .register-form label,
+  .login-form label {
+    font-size: 0.9rem;
+  }
+  .register-form input,
+  .login-form input {
+    font-size: 0.8rem;
+    margin: 0.6rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+  .register-btn,
+  .login-btn {
+    padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .register-page-form-container,
+  .login-page-form-container {
+    width: 90%;
+    padding: 3rem 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .register-page-container,
+  .login-page-container {
+    width: 80%;
+  }
+  .register-page-form-container,
+  .login-page-form-container {
+    width: 100%;
+  }
+  .already-acc,
+  .no-acc {
+    font-size: 0.8rem;
+  }
+  .register-btn,
+  .login-btn {
+    padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+    font-size: 1rem;
+  }
+  .forgot-password {
+    font-size: 0.6rem;
+  }
+}
+/* --------reset-password Page ------- */
+@media screen and (max-width: 1200px) {
+  .reset-password-page-container {
+    width: 45%;
+    padding: 6rem 4rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .reset-password-page-container {
+    width: 50%;
+    padding: 5rem 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .reset-password-page-container {
+    width: 70%;
+    padding: 4rem 3rem;
+  }
+  .reset-password-heading {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .reset-password-page-container {
+    width: 100%;
+    padding: 4rem 2rem;
+  }
+  .reset-password-heading {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  .reset-password-form label {
+    font-size: 0.9rem;
+  }
+  .reset-password-form input {
+    font-size: 0.8rem;
+    margin: 0.8rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+  .reset-password-btn {
+    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
+    font-size: 1rem;
+  }
+}
