@@ -41,7 +41,7 @@ function Feedback() {
                 <h1 className="feedback-heading">Thanks! To Your Donor</h1>
                 <form onSubmit={handleSubmit} className="feedback-form">
 
-                    <label>Recipient name :</label>
+                    <label>Recipient Name </label>
                     <input
                         type="text"
                         name="recipient"
@@ -49,7 +49,7 @@ function Feedback() {
                         onChange={(e) => setRecipient(e.target.value)}
                         placeholder="Enter recipient's fullname"
                     />
-                    <label>Donor name :</label>
+                    <label>Donor Name </label>
                     <input
                         type="text"
                         name="donor"
@@ -57,7 +57,7 @@ function Feedback() {
                         onChange={(e) => setDonor(e.target.value)}
                         placeholder="Enter donor's fullname"
                     />
-                    <label>Say Thanks to your Donor :</label>
+                    <label>Message</label>
                     <textarea
                         className="feedback-msg-box"
                         type="text"

@@ -2,67 +2,41 @@
 
 /* -------- Declaring Variables Start --------- */
 :root {
-  /* ------- COLORS -------- */
   --background: linear-gradient(
     to left,
     rgb(255, 171, 175),
     rgb(252, 112, 119)
   );
+  --dark-color: rgb(97, 37, 53);
   --red-color: rgb(192, 13, 13);
-  --dark-color: #7a0a0a;
-  --light-color: #fbeada;
+  --light-color: #fffaf5;
   --white: rgb(255, 253, 255);
   --black: rgb(0, 0, 0);
-  /* ------- HEIGHT -------- */
-  --height-80: 80vh;
-  --height-full-container: 100%;
-  --height-half-container: 50%;
-  /* ------- WIDTH -------- */
-  --width-30: 30vw;
-  --width-60: 60vw;
-  --width-full-container: 100%;
-  --width-quarter-container: 70%;
-  --width-half-container: 50%;
-  /* ------- MARGIN -------- */
-  --margin-auto: auto;
-  --margin-negative: -0.5vw;
-  --margin-1: 1vw;
-  --margin-2: 2vw;
-  --margin-3: 3vw;
-  --margin-4: 4vw;
-  --margin-5: 5vw;
-  --margin-6: 6vw;
-  --margin-input: 0.3vw 0 1.3vw 0;
-  /* ------- PADDING -------- */
-  --padding-1: 1vw;
-  --padding-2: 2vw;
-  --padding-3: 3vw;
-  --padding-4: 4vw;
-  --padding-5: 5vw;
-  --padding-6: 6vw;
-  --padding-input: 0.6vw 1vw;
-  --padding-btn: 0.8vw;
-  /* ------- FONT-SIZE -------- */
-  --large-font-size: 1.5vw;
-  --medium-font-size: 1.3vw;
-  --small-font-size: 0.9vw;
-  --very-small-font-size: 0.7vw;
-  /* ------- FONT-WEIGHT -------- */
-  --bold-font-weight: bold;
-  --bolder-font-weight: bolder;
-  /* ------- LETTER-SPACING -------- */
-  --letter-spacing-more: 3px;
-  --letter-spacing-less: 1.3px;
-  /* ------- BORDER-RADIUS -------- */
-  --border-radius: 0.3vw;
-  --circle-container: 50%;
-  /* ------- TRANSITION -------- */
-  --transition-duration: 0.3s;
-  /* ------- BOX-SHADOW -------- */
-  --box-shadow: 4px 4px 10px 0 var(--dark-color);
 }
 /* -------- Declaring Variables End --------- */
 
+/* -------- Animation Keyframes ------- */
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
 /* -------- Navbar ------- */
 @media screen and (max-width: 1200px) {
   header {
@@ -150,26 +124,7 @@
     padding: 2rem 0.5rem;
   }
 }
-@keyframes slideTop {
-  0% {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
-@keyframes slideLeft {
-  0% {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
+
 
 /* -------- Welcome Section ------- */
 @media screen and (max-width: 1200px) {

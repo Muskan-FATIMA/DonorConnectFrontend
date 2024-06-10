@@ -17,22 +17,6 @@
 }
 /* -------- Declaring Variables End --------- */
 
-
-
-/* -------- Root ------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-/* -------- Body ------- */
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--light-color);
-}
-
 /* -------- Animation Keyframes ------- */
 @keyframes slideRight {
   0% {
@@ -64,6 +48,7 @@ body {
     opacity: 1;
   }
 }
+
 @keyframes slideBottom {
   0% {
     transform: translateY(-100px);
@@ -84,6 +69,20 @@ body {
   100% {
     transform: scale(1);
   }
+}
+
+/* -------- Root ------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* -------- Body ------- */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--light-color);
 }
 
 /* -------- Navbar ------- */
@@ -269,7 +268,7 @@ nav a.active{
   width: 20px;
   height: 20px;
   color: var(--black);
-  transition: .3s;
+  transition: .3s ease;
 }
 .social-links-container svg:hover {
  color: var(--red-color);
@@ -321,38 +320,6 @@ hr {
   line-height: 1.6;
   margin-top: 0.5rem;
 }
-.welcome-section-btns {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin-top: 6%;
-}
-.welcome-section-register-btn,
-.welcome-section-login-btn {
-  background-color: var(--red-color);
-  border: 2px solid var(--light-color);
-  padding: 3% 5%;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  box-shadow: 2px 2px 10px var(--red-color);
-  transition: 0.3s;
-  animation: slideTop 1s ease forwards;
-}
-.welcome-section-register-btn {
-  margin-right: 1rem;
-}
-.welcome-section-register-btn a,
-.welcome-section-login-btn a {
-  color: var(--light-color);
-  text-decoration: none;
-  cursor: pointer;
-}
-.welcome-section-register-btn:hover,
-.welcome-section-login-btn:hover {
-  background-color: transparent;
-  border: 2px solid var(--light-color);
-}
 .welcome-img {
   width: 50%;
   display: flex;
@@ -382,7 +349,6 @@ hr {
   width: 100%;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.966);
-  animation: slideRight 1s ease forwards;
 }
 .about-content {
   padding: 0 5rem;
@@ -449,10 +415,6 @@ hr {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 .success-stories-card-container {
-  /* background-image: url(assets/red.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
   margin: 2rem auto;
   width: 90%;
   border-radius: 20px;
@@ -462,7 +424,6 @@ hr {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  /* box-shadow: 5px 5px 3px rgba(58, 12, 12, 0.948); */
 }
 .success-stories-cardBox {
   width: 100%;
@@ -490,7 +451,6 @@ hr {
 }
 .success-stories-card .feedback:hover{
   transform: scale(1.01) translateY(-5px);
- 
 }
 
 /* -------- Educational Resources Page ------- */
@@ -503,13 +463,15 @@ hr {
   color: var(--red-color);
   font-size: 2rem;
   margin-bottom: 2rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
-.blood-type-compatibility .desc {
+.desc {
   width: 70%;
   margin: auto;
   font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.5;
+  color: var(--red-color);
 }
 .blood-type-compatibility div {
   margin-top: 2rem;
@@ -538,13 +500,7 @@ hr {
   color: var(--red-color);
   font-size: 2rem;
   margin-bottom: 2rem;
-}
-.who-can-donate-blood .desc {
-  width: 70%;
-  margin: auto;
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 .who-can-donate-blood div {
   margin-top: 2rem;
@@ -573,13 +529,7 @@ hr {
   color: var(--red-color);
   font-size: 2rem;
   margin-bottom: 2rem;
-}
-.benefits-of-donating-blood .desc {
-  width: 70%;
-  margin: auto;
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 .benefits-of-donating-blood div {
   margin-top: 2rem;
@@ -608,13 +558,7 @@ hr {
   color: var(--red-color);
   font-size: 2rem;
   margin-bottom: 2rem;
-}
-.donation-process .desc {
-  width: 70%;
-  margin: auto;
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 .donation-process .main-div {
   margin-top: 2rem;
@@ -663,13 +607,7 @@ hr {
   color: var(--red-color);
   font-size: 2rem;
   margin-bottom: 2rem;
-}
-.after-donating-blood .desc {
-  width: 70%;
-  margin: auto;
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 .after-donating-blood div {
   margin-top: 2rem;
@@ -910,8 +848,6 @@ hr {
   color: var(--light-color);
   font-size: 1rem;
   font-weight: 600;
-
-  
 }
 .edit-btn{
   position: absolute;
@@ -1008,6 +944,7 @@ color: var(--red-color);
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-sizing: border-box;
 }
 .congratulation-msg-container {
   border: 2px solid var(--red-color);
@@ -1018,6 +955,20 @@ color: var(--red-color);
   width: 80%;
   margin-bottom: 1rem;
   box-shadow: 5px 5px 2px rgb(192, 13, 13);
+  box-sizing: border-box;
+}
+.no-donation{
+  height: 30vh;
+  margin: 1rem 5rem 5rem 5rem;
+  padding: 5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--red-color);
+} 
+.no-donation p{
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 5px rgba(63, 6, 6, 0.1); 
+  padding: 2rem;
 }
 
 /* -------- Feedback Page ------- */
@@ -1086,7 +1037,6 @@ color: var(--red-color);
   border: none;
   outline: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  color: var(--red-color);
   font-weight: 600;
   margin: 0.5rem;
 }
@@ -1097,7 +1047,7 @@ margin-top: 2rem;
 padding: 0.8rem 1rem 0.8rem 1rem;
 border-radius: 20px;
 border: 2px solid var(--light-red);
-font-size: 1.5rem;
+font-size: 1.2rem;
 font-weight: bolder;
 background-color: var(--red-color);
 color: var(--light-color);
@@ -1132,7 +1082,6 @@ color: var(--red-color);
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  box-sizing: border-box;
   box-shadow: 2px 2px 2px 5px rgba(63, 6, 6, 0.1);
 }
 .contact-heading {
@@ -1184,7 +1133,7 @@ color: var(--red-color);
 }
 
 .contact-send-btn {
-  width: 100%;
+width: 100%;
 margin-top: 2rem;
 padding: 0.8rem 1rem 0.8rem 1rem;
 border-radius: 20px;
@@ -1227,6 +1176,7 @@ color: var(--red-color);
   box-sizing: border-box;
 }
 .add-req-heading{
+  width: 100%;
   text-align: center;
   letter-spacing: 2px;
   font-size: 1.4rem;
@@ -1301,7 +1251,7 @@ color: var(--red-color);
   box-shadow: 5px 5px  5px rgba(0, 0, 0, 0.2);
 }
 
-/* ----------View Request Page---------- */
+/* ----------View Request Page , my-request page---------- */
 .view-request-main-container, .my-requests-main-container {
   display: flex;
   flex-direction: column;
@@ -1359,6 +1309,20 @@ color: var(--red-color);
   font-weight: 700;
   margin-top: 3%;
 }
+.empty-myrequest{
+  height: 30vh;
+  margin: 1rem 5rem 5rem 5rem;
+  padding: 5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--red-color);
+} 
+.empty-myrequest p{
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 5px rgba(63, 6, 6, 0.1); 
+  padding: 2rem;
+}
+
 .user-details-btn{
   width: 60%;
   border-radius: 10px;
@@ -1480,7 +1444,6 @@ color: var(--red-color);
   color: var(--red-color);
 }
 .req-accepted-main-container{
-
   width: 50%;
   height: 90%;
   display: flex;
@@ -1520,6 +1483,7 @@ color: var(--red-color);
   line-height: 1.8;
   text-shadow: 2px 2px 5px rgba(246, 163, 163, 0.562);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.892);
+  box-sizing: border-box;
 }
 .accepted-suggestion{
   color: var(--light-color);
@@ -1541,4 +1505,5 @@ color: var(--red-color);
   border: 2px solid var(--red-color);
   border-radius: 10px;
   font-weight: bold;
+  box-sizing: border-box;
 }

@@ -26,7 +26,7 @@ export default function DonationProcess() {
                     <div className="another-another-div">
                         <p>
                             After registration, you'll undergo a health screening to ensure that you meet the eligibility criteria for blood donation. You'll be asked questions about your medical history, recent travel, and lifestyle factors that could affect the safety of your donation. This information helps identify any potential risk factors for transmitting infections through blood donation.
-                            A staff member will take your vital signs, including your temperature, blood pressure, and pulse rate. They may also measure your hemoglobin level by pricking your finger and collecting a small blood sample.
+                            A staff member will take your vital signs, including your temperature, blood pressure, and pulse rate. They may also measure your haemoglobin level by pricking your finger and collecting a small blood sample.
                         </p>
                         <img src={healthHistory} />
                     </div>

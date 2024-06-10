@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { jwtDecode } from 'jwt-decode';
 import swal from 'sweetalert2';
 
+
 export default function MyActivity() {
     const [id, setId] = useState('');
     const [acceptedRequests, setAcceptedRequests] = useState([]);
@@ -57,18 +58,18 @@ export default function MyActivity() {
 
     return (
         <div className="my-activity-page-container">
-            <h1 className="achievements-heading">Thank You! for Your Act of Kindness</h1>
+            <h1 className="achievements-heading">Thank You! for Your Act of Kindness   </h1>
             <center className="achievements-container">
                 {acceptedRequests.length > 0 ? (
                     acceptedRequests.map((req, index) => (
                         <div key={index} className="congratulation-msg-container">
                             <p>
-                                We are immensely grateful for your recent blood donation. Your selfless act of kindness is a beacon of hope for those in need. By giving blood, you have made a profound difference in <span style={{ fontWeight: "700" }}>{req.recipientName}</span> life.Thank you for your generosity and compassion.
+                                We are immensely grateful for your recent blood donation. Your selfless act of kindness is a beacon of hope for those in need. By giving blood, you have made a profound difference in <span style={{ fontWeight: "700" }}>'{req.recipientName}'</span> life.Thank you for your generosity and compassion.
                             </p>
                         </div>
                     ))
                 ) : (
-                    <p>No accepted requests yet.</p>
+                    <div className='no-donation'><p> No Donations Yet !</p></div>
                 )}
             </center>
         </div>

@@ -167,50 +167,54 @@ export default function MyRequest() {
     return (
         <div className="my-requests-main-container">
             <div className="my-requests-container">
-                {requestData.map((req, index) => (
-                    <div className="my-requests-cards" key={index}>
+                {requestData.length > 0 ? (
+                    requestData.map((req, index) => (
+                        <div className="my-requests-cards" key={index}>
 
-                        <div className="my-req-innertext">
+                            <div className="my-req-innertext">
 
-                            <h2>{req.recipientName}</h2>
+                                <h2>{req.recipientName}</h2>
 
-                            <h5>Date : {req.bldRequiredBeforeDate}</h5>
-                            <h5>Time : {req.bldRequiredBeforeTime}</h5>
-                            <h5>Blood Group : {req.bldGrp}</h5>
-                            <h5>No of Units : {req.unitsNeeded} ml</h5>
-                            <h5>Location : {req.bldDonationLocation}</h5>
-                            <h5>Contact Number : {req.contact}</h5>
-                            <h5>Message : "{req.reason}"</h5>
+                                <h5>Date : {req.bldRequiredBeforeDate}</h5>
+                                <h5>Time : {req.bldRequiredBeforeTime}</h5>
+                                <h5>Blood Group : {req.bldGrp}</h5>
+                                <h5>No of Units : {req.unitsNeeded} ml</h5>
+                                <h5>Location : {req.bldDonationLocation}</h5>
+                                <h5>Contact Number : {req.contact}</h5>
+                                <h5>Message : "{req.reason}"</h5>
 
-                            {/* {isExpired(req) && handleDelete(req.id)} */}
+                                {/* {isExpired(req) && handleDelete(req.id)} */}
 
-                            {req.acceptedBy ? (
-                                <button className='user-details-btn' onClick={() => handleShowAcceptedUser(req.acceptedBy)}>
-                                    Request accepted <br /> Click for details.
-                                </button>
-                            )
-                                :
-                                (
-                                    <div className="my-requests-cards-btn">
-                                        <button className="my-requests-delete-btn">
-                                            <Link to="/add-request" state={{ req }}>
-                                                Edit
-                                            </Link>
-                                        </button>
+                                {req.acceptedBy ? (
+                                    <button className='user-details-btn' onClick={() => handleShowAcceptedUser(req.acceptedBy)}>
+                                        Request accepted <br /> Click for details.
+                                    </button>
+                                )
+                                    :
+                                    (
+                                        <div className="my-requests-cards-btn">
+                                            <button className="my-requests-delete-btn">
+                                                <Link to="/add-request" state={{ req }}>
+                                                    Edit
+                                                </Link>
+                                            </button>
 
-                                        <button className="my-requests-delete-btn" onClick={() => handleDelete(req.id)}>
-                                            Delete
-                                        </button>
-                                        <button className="my-requests-share-btn" onClick={handleShare}>
-                                            Share
-                                        </button>
-                                    </div>
-                                )}
+                                            <button className="my-requests-delete-btn" onClick={() => handleDelete(req.id)}>
+                                                Delete
+                                            </button>
+                                            <button className="my-requests-share-btn" onClick={handleShare}>
+                                                Share
+                                            </button>
+                                        </div>
+                                    )}
 
 
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                ) : (
+                    <div className='empty-myrequest'><p> No Requests added !</p></div>
+                )}
             </div>
         </div >
 

@@ -42,6 +42,7 @@ function Footer() {
             id,
             email,
         )
+        setEmail('');
     }
 
     return (
@@ -64,6 +65,7 @@ function Footer() {
                         <Link to="/">Home</Link>
                         <Link to="/add-request">Add Request</Link>
                         <Link to="/view-request">View Request</Link>
+                        <Link to="/contact">Contact Us</Link>
                         <Link to="/educational-resources">Educational Resources</Link>
                     </div>
                 </div>

@@ -15,7 +15,6 @@ export default function WhoCanDonateBlood() {
                     <li>Blood pressure, pulse and temperature should be within normal limits for the age group.</li>
                     <li>Donors must be in good general health on the day of donation, without any acute or chronic illnesses.</li>
                     <li>The donor should not be having any form of cancer or heart disease or TB or HIV or any kind of chronic disease.</li>
-                    <li>No tattoos should have been done anywhere on the body for 1 year.</li>
                     <li>Pregnant individuals and those who are breastfeeding are typically deferred from donating blood.</li>
                     <li>Recent vaccinations may affect eligibility, especially live vaccines.</li>
                 </ul>
