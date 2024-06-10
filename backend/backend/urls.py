@@ -22,4 +22,6 @@ urlpatterns = [
     path('api/profiles/', include('profiles.urls')),
     path('api/requests/', include('requests.urls')),
     path('api/feedbacks/', include('feedback.urls')),
+    path('', include('contact.urls')),
+    path('', include('newsletter.urls'))
 ]

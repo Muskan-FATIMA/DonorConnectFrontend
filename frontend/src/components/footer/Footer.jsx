@@ -6,10 +6,43 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { jwtDecode } from "jwt-decode";
 
 function Footer() {
 
+    const [id, setId] = useState('');
+    const [email, setEmail] = useState('');
+
     const year = new Date().getFullYear();
+
+    const { authTokens } = useContext(AuthContext) || {};
+    const { newsletter } = useContext(AuthContext) || {};
+
+
+    useEffect(() => {
+        if (authTokens && authTokens.access) {
+            try {
+                const decoded = jwtDecode(authTokens.access);
+                if (decoded.user_id) {
+                    setId(decoded.user_id);
+                } else {
+                    console.log("id not found in the token");
+                }
+            } catch (error) {
+                console.log("Error decoding token:", error);
+            }
+        }
+    }, [authTokens]);
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        newsletter(
+            id,
+            email,
+        )
+    }
 
     return (
         <footer id="contact" className="footer-section">
@@ -36,9 +69,9 @@ function Footer() {
                 </div>
                 <div className="footer-division">
                     <h2 className="subscribe-newsletter">Subscribe to our Newsletter</h2>
-                    <form className="newsletter-container">
+                    <form className="newsletter-container" onSubmit={handleSubmit}>
                         <MailOutlineIcon style={{ color: "black" }} />
-                        <input type="email" placeholder="Enter your email-id..." required />
+                        <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email-id..." required />
                         <button type="submit"><ArrowForwardIcon /></button>
                     </form>
                     <div className="social-links-container ">

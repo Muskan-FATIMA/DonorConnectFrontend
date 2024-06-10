@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+
+
 from pathlib import Path
 from datetime import timedelta
 
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
     'profiles',
     'requests',
     'feedback',
+    'contact',
+    'newsletter',
     'rest_framework',
     'rest_framework_simplejwt',    
     'corsheaders'
@@ -144,4 +148,3 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=50),
 }
-

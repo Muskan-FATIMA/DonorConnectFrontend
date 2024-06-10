@@ -6,14 +6,15 @@ import { AuthContext } from '../../context/AuthContext';
 import { jwtDecode } from 'jwt-decode';
 import swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 
 
 export default function MyProfile() {
     const [id, setId] = useState('');
     const [profile, setProfile] = useState(null);
     const { authTokens } = useContext(AuthContext) || {};
+
+    const [requestData, setRequestData] = useState([]);
+
 
     useEffect(() => {
         if (authTokens && authTokens.access) {
@@ -32,6 +33,39 @@ export default function MyProfile() {
     }, [authTokens]);
 
     const baseURL = "http://127.0.0.1:8000/api";
+
+    useEffect(() => {
+        const fetchRequest = async () => {
+            try {
+                const response = await axios.get(`${baseURL}/requests/request/`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (response.status === 200) {
+                    const requests = response.data.filter(req => req.user === id);
+                    setRequestData(requests);
+                }
+            } catch (error) {
+                console.error('Error fetching requests:', error);
+                swal.fire({
+                    title: 'An Error Occurred while Fetching Requests',
+                    text: error.message || 'Internal Server Error',
+                    icon: 'error',
+                    toast: true,
+                    timer: 2000,
+                    position: 'top-right',
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                });
+            }
+        };
+
+        if (id) {
+            fetchRequest();
+        }
+    }, [id]);
+
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -66,6 +100,8 @@ export default function MyProfile() {
         fetchProfile();
     }, [id]);
 
+
+
     if (!profile) {
         return <div>Loading...</div>;
     }
@@ -88,11 +124,23 @@ export default function MyProfile() {
                 </div>
                 <div className="side-profile-btn">
                     <button className="myactivity-btn"><Link to="/my-activity">
-                        Gratitude
+                        Achievements
                     </Link>
                     </button>
                     <button className="myrequests-btn"><Link to="/my-request">
-                        MyRequests
+                        {
+                            requestData.map((req, index) => (
+                                <div key={index}>
+                                    {
+                                        req.acceptedBy &&
+                                        <div className="req-accepted-badge"></div>
+
+                                    }
+                                </div>
+
+                            ))
+                        }
+                        My Requests
                     </Link>
                     </button>
                     <button className="myrequests-btn"><Link to="/feedback">

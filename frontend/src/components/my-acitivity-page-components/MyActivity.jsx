@@ -57,7 +57,7 @@ export default function MyActivity() {
 
     return (
         <div className="my-activity-page-container">
-            <h1 className="achievements-heading">Thank You for Your Act of Kindness!</h1>
+            <h1 className="achievements-heading">Thank You! for Your Act of Kindness</h1>
             <center className="achievements-container">
                 {acceptedRequests.length > 0 ? (
                     acceptedRequests.map((req, index) => (

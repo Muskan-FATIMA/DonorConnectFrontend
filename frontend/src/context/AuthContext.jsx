@@ -17,9 +17,11 @@ export const AuthContext = createContext({
     createProfile: () => { },
     createBldRequest: () => { },
     sendFeedback: () => { },
+    contact: () => { },
+    newsletter: () => { },
 });
 
-const baseURL = "http://127.0.0.1:8000/api";
+const baseURL = "http://127.0.0.1:8000";
 
 const AuthProvider = ({ children }) => {
     const [authTokens, setAuthTokens] = useState(() =>
@@ -37,7 +39,7 @@ const AuthProvider = ({ children }) => {
 
     const registerUser = async (email, username, password, password2) => {
         try {
-            const response = await axios.post(`${baseURL}/auth/register/`, {
+            const response = await axios.post(`${baseURL}/api/auth/register/`, {
                 email,
                 username,
                 password,
@@ -76,7 +78,7 @@ const AuthProvider = ({ children }) => {
 
     const loginUser = async (username, password) => {
         try {
-            const response = await axios.post(`${baseURL}/auth/gettoken/`, {
+            const response = await axios.post(`${baseURL}/api/auth/gettoken/`, {
                 username,
                 password
             }, {
@@ -106,7 +108,7 @@ const AuthProvider = ({ children }) => {
 
     const checkProfile = async (userId) => {
         try {
-            const response = await axios.get(`${baseURL}/profiles/profile/`, {
+            const response = await axios.get(`${baseURL}/api/profiles/profile/`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -153,7 +155,7 @@ const AuthProvider = ({ children }) => {
 
     const refreshToken = async () => {
         try {
-            const response = await axios.post(`${baseURL}/auth/refreshtoken/`, {
+            const response = await axios.post(`${baseURL}/api/auth/refreshtoken/`, {
                 refresh: authTokens.refresh
             });
             if (response.status === 200) {
@@ -170,12 +172,12 @@ const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        const fourMinutes = 1000 * 60 * 4;
+        const tenDays = 1000 * 60 * 60 * 24 * 10;
         const interval = setInterval(() => {
             if (authTokens) {
                 refreshToken();
             }
-        }, fourMinutes);
+        }, tenDays);
         return () => clearInterval(interval);
     }, [authTokens]);
 
@@ -188,7 +190,7 @@ const AuthProvider = ({ children }) => {
 
     const createProfile = async (user, fullname, age, gender, bldGrp, address, contact) => {
         try {
-            const response = await axios.post(`${baseURL}/profiles/profile/`, { user, fullname, age, gender, bldGrp, address, contact }, {
+            const response = await axios.post(`${baseURL}/api/profiles/profile/`, { user, fullname, age, gender, bldGrp, address, contact }, {
                 headers: {
                     "Content-Type": "application/json"
                 }
@@ -235,7 +237,7 @@ const AuthProvider = ({ children }) => {
         try {
             let response;
             if (req) {
-                response = await axios.put(`${baseURL}/requests/request/${req.id}/`, {
+                response = await axios.put(`${baseURL}/api/requests/request/${req.id}/`, {
                     user,
                     recipientName,
                     bldDonationLocation,
@@ -251,7 +253,7 @@ const AuthProvider = ({ children }) => {
                     },
                 });
             } else {
-                response = await axios.post(`${baseURL}/requests/request/`, {
+                response = await axios.post(`${baseURL}/api/requests/request/`, {
                     user,
                     recipientName,
                     bldDonationLocation,
@@ -267,7 +269,7 @@ const AuthProvider = ({ children }) => {
                     },
                 });
             }
-    
+
             if (response.status === 201 || response.status === 200) {
                 navigate('/');
                 swal.fire({
@@ -280,7 +282,7 @@ const AuthProvider = ({ children }) => {
                     showConfirmButton: false,
                 });
             }
-    
+
         } catch (error) {
             console.error("Error sending data:", error);
             swal.fire({
@@ -295,10 +297,10 @@ const AuthProvider = ({ children }) => {
             });
         }
     };
-    
+
     const sendFeedback = async (recipient, donor, thanksmsg) => {
         try {
-            const response = await axios.post(`${baseURL}/feedbacks/feedback/`, {
+            const response = await axios.post(`${baseURL}/api/feedbacks/feedback/`, {
                 recipient,
                 donor,
                 thanksmsg
@@ -333,7 +335,82 @@ const AuthProvider = ({ children }) => {
             });
         }
     };
-    
+
+    const contact = async (user, fullname, email, msg) => {
+        try {
+            const response = await axios.post(`${baseURL}/contact/`, {
+                user, fullname, email, msg
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${authTokens.access}`
+                }
+            });
+            if (response.status === 201) {
+                navigate('/')
+                swal.fire({
+                    title: "Your message was sent successfully",
+                    icon: "success",
+                    toast: true,
+                    timer: 2000,
+                    position: 'top-right',
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                });
+            }
+        } catch (error) {
+            console.error("Error sending message:", error);
+            swal.fire({
+                title: "An Error Occurred while Sending Your Message",
+                text: error.message || "Internal Server Error",
+                icon: "error",
+                toast: true,
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false,
+            });
+        }
+    };
+
+
+    const newsletter = async (user, email) => {
+        try {
+            const response = await axios.post(`${baseURL}/newsletter/`, {
+                user, email
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${authTokens.access}`
+                }
+            });
+            if (response.status === 201) {
+                navigate('/')
+                swal.fire({
+                    title: "You have subscribed our newsletter successfully",
+                    icon: "success",
+                    toast: true,
+                    timer: 2000,
+                    position: 'top-right',
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                });
+            }
+        } catch (error) {
+            console.error("Error subscribing newsletter:", error);
+            swal.fire({
+                title: "An Error Occurred while subscribing newsletter",
+                text: error.message || "Internal Server Error",
+                icon: "error",
+                toast: true,
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false,
+            });
+        }
+    };
+
 
 
     const contextData = {
@@ -346,7 +423,9 @@ const AuthProvider = ({ children }) => {
         logoutUser,
         createProfile,
         createBldRequest,
-        sendFeedback
+        sendFeedback,
+        contact,
+        newsletter
     };
 
     return (

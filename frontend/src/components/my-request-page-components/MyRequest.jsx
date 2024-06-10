@@ -65,35 +65,35 @@ export default function MyRequest() {
         }
     }, [id]);
 
-    // const handleShowAcceptedUser = async (acceptedBy) => {
-    //     try {
-    //         const response = await axios.get(`${baseURL}/profiles/profile/`, {
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //         });
-    //         if (response.status === 200) {
-    //             const accepted = response.data.find(i => i.user === acceptedBy);
-    //             setAcceptedUser(accepted);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error fetching user:', error);
-    //         swal.fire({
-    //             title: 'An Error Occurred while Fetching User Info',
-    //             text: error.message || 'Internal Server Error',
-    //             icon: 'error',
-    //             toast: true,
-    //             timer: 2000,
-    //             position: 'top-right',
-    //             timerProgressBar: true,
-    //             showConfirmButton: false,
-    //         });
-    //     }
-    // };
+    const handleShowAcceptedUser = async (acceptedBy) => {
+        try {
+            const response = await axios.get(`${baseURL}/profiles/profile/`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.status === 200) {
+                const accepted = response.data.find(i => i.user === acceptedBy);
+                setAcceptedUser(accepted);
+            }
+        } catch (error) {
+            console.error('Error fetching user:', error);
+            swal.fire({
+                title: 'An Error Occurred while Fetching User Info',
+                text: error.message || 'Internal Server Error',
+                icon: 'error',
+                toast: true,
+                timer: 2000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false,
+            });
+        }
+    };
 
     useEffect(() => {
         if (acceptedUser) {
-            navigate('/accepted-user-detail', { state: { acceptedUser } });
+            navigate('/show-donor-detail', { state: { acceptedUser } });
         }
     }, [acceptedUser]);
 
@@ -136,7 +136,7 @@ export default function MyRequest() {
         const link = "http://localhost:5173/";
         navigator.clipboard.writeText(link);
         swal.fire({
-            title: "Website Link Copied Successfully. \n \n Now paste it to whoever you want to share",
+            title: "Website Link Copied Successfully.",
             icon: "success",
             toast: true,
             timer: 2000,
@@ -184,31 +184,35 @@ export default function MyRequest() {
 
                             {/* {isExpired(req) && handleDelete(req.id)} */}
 
-                            {/* {req.acceptedBy && (
-                                <button onClick={() => handleShowAcceptedUser(req.acceptedBy)}>
-                                    Someone has accepted your request.<br />Click here to view full details.
+                            {req.acceptedBy ? (
+                                <button className='user-details-btn' onClick={() => handleShowAcceptedUser(req.acceptedBy)}>
+                                    Request accepted <br /> Click for details.
                                 </button>
-                            )} */}
+                            )
+                                :
+                                (
+                                    <div className="my-requests-cards-btn">
+                                        <button className="my-requests-delete-btn">
+                                            <Link to="/add-request" state={{ req }}>
+                                                Edit
+                                            </Link>
+                                        </button>
 
-                            <div className="my-requests-cards-btn">
-                                <button className="my-requests-delete-btn">
-                                    <Link to="/add-request" state={{ req }}>
-                                        Edit
-                                    </Link>
-                                </button>
+                                        <button className="my-requests-delete-btn" onClick={() => handleDelete(req.id)}>
+                                            Delete
+                                        </button>
+                                        <button className="my-requests-share-btn" onClick={handleShare}>
+                                            Share
+                                        </button>
+                                    </div>
+                                )}
 
-                                <button className="my-requests-delete-btn" onClick={() => handleDelete(req.id)}>
-                                    Delete
-                                </button>
-                                <button className="my-requests-share-btn" onClick={handleShare}>
-                                    Share
-                                </button>
-                            </div>
+
                         </div>
                     </div>
                 ))}
             </div>
-        </div>
+        </div >
 
     )
 }

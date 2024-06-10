@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
 import { jwtDecode } from "jwt-decode";
-import { Link } from "react-router-dom";
 
 function AddRequestForm() {
 
@@ -72,20 +71,21 @@ function AddRequestForm() {
                 <h1 className="add-req-heading">Create Request</h1>
                 <form className="add-request-form" onSubmit={handleSubmit}>
                     <label>Recipient's Name </label>
-                    <input type="text" name="recipientName" value={recipientName} onChange={(e) => setRecipientName(e.target.value)} placeholder="Enter recipient's name" />
+                    <input type="text" name="recipientName" value={recipientName} onChange={(e) => setRecipientName(e.target.value)} placeholder="Enter recipient's name" required />
+
                     <br />
                     <label>Blood Donation Location </label>
-                    <input type="text" name="recipientAddress" value={bldDonationLocation} onChange={(e) => setBldDonationLocation(e.target.value)} placeholder="Enter the location of blood donation" />
+                    <input type="text" name="recipientAddress" value={bldDonationLocation} onChange={(e) => setBldDonationLocation(e.target.value)} placeholder="Enter the location of blood donation" required />
                     <br />
                     <label>Blood Required Before (Date) </label>
-                    <input type="date" name="requiredByDate" value={bldRequiredBeforeDate} onChange={(e) => setBldRequiredBeforeDate(e.target.value)} />
+                    <input type="date" name="requiredByDate" value={bldRequiredBeforeDate} onChange={(e) => setBldRequiredBeforeDate(e.target.value)} required />
                     <br />
                     <label>Blood Required Before (Time)</label>
-                    <input type="time" name="requiredByTime" value={bldRequiredBeforeTime} onChange={(e) => setBldRequiredBeforeTime(e.target.value)} />
+                    <input type="time" name="requiredByTime" value={bldRequiredBeforeTime} onChange={(e) => setBldRequiredBeforeTime(e.target.value)} required />
                     <br />
                     <label>Blood Group Required </label>
                     <br />
-                    <select className="bld-grp" name="bldGrp" onChange={(e) => setBldGrp(e.target.value)} value={bldGrp}>
+                    <select className="bld-grp" name="bldGrp" onChange={(e) => setBldGrp(e.target.value)} value={bldGrp} required>
                         <option value="" disabled>Select Blood Group</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
@@ -98,15 +98,15 @@ function AddRequestForm() {
                     </select>
                     <br />
                     <label>No. of units needed </label>
-                    <input type="number" name="unitsNeeded" value={unitsNeeded} onChange={(e) => setUnitsNeeded(e.target.value)} placeholder="Enter number of units needed" />
+                    <input type="number" name="unitsNeeded" value={unitsNeeded} onChange={(e) => setUnitsNeeded(e.target.value)} placeholder="Enter number of units needed" required />
                     <br />
                     <label>Contact</label>
                     <br />
-                    <input type="number" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Enter contact number" />
+                    <input type="number" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Enter contact number" required />
                     <br />
                     <label>Reason for Blood Requirement </label>
                     <br />
-                    <textarea type="text" name="msgToDonor" value={reason} onChange={(e) => setReason(e.target.value)} cols={50} rows={6} placeholder="Type a message to donor..." />
+                    <textarea type="text" name="msgToDonor" value={reason} onChange={(e) => setReason(e.target.value)} cols={50} rows={6} placeholder="Type a message to donor..." required />
                     <button type="submit" className="request-btn">Add Request</button>
                 </form>
             </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -58,35 +58,35 @@ function NavBar() {
 
     return (
         <header>
-            <Link to="/">
+            <NavLink to="/">
                 <div className="logo-container">
                     <img className="logo-img" src={logo} alt="Logo" />
                 </div>
-            </Link>
+            </NavLink>
 
             {/* for large screens */}
             <nav className="nav-links-large">
-                <Link to="/">Home</Link>
-                <Link to="/educational-resources">Educational Resources</Link>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/educational-resources">Educational Resources</NavLink>
                 {token === null ?
                     <>
-                        <Link to="/register">Register</Link>
-                        <Link to="/login">Login</Link>
+                        <NavLink to="/register">Register</NavLink>
+                        <NavLink to="/login">Login</NavLink>
                     </>
                     :
                     <>
-                        <Link to="/add-request">Add Request</Link>
-                        <Link to="/view-request">View Request<div className="view-request-badge">{length}</div></Link>
+                        <NavLink to="/add-request">Add Request</NavLink>
+                        <NavLink to="/view-request">View Request<div className="view-request-badge">{length}</div></NavLink>
                         <a onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</a>
                     </>
                 }
-                <a href="/contact">Contact Us</a>
+                <NavLink to="/contact">Contact Us</NavLink>
             </nav>
             {token !== null &&
                 <div className="profile-icon-large">
-                    <Link to='/my-profile'>
+                    <NavLink to='/my-profile'>
                         {username.charAt(0).toUpperCase()}
-                    </Link>
+                    </NavLink>
                 </div>
             }
 
@@ -99,21 +99,21 @@ function NavBar() {
                     {
                         navOpen && (
                             <nav className="nav-links-small">
-                                <Link to="/">Home</Link>
-                                <Link to="/educational-resources">Educational Resources</Link>
+                                <NavLink to="/">Home</NavLink>
+                                <NavLink to="/educational-resources">Educational Resources</NavLink>
                                 {token === null ?
                                     <>
-                                        <Link to="/register">Register</Link>
-                                        <Link to="/login">Login</Link>
+                                        <NavLink to="/register">Register</NavLink>
+                                        <NavLink to="/login">Login</NavLink>
                                     </>
                                     :
                                     <>
-                                        <Link to="/add-request">Add Request</Link>
-                                        <Link to="/view-request">View Request</Link>
+                                        <NavLink to="/add-request">Add Request</NavLink>
+                                        <NavLink to="/view-request">View Request</NavLink>
                                         <a onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</a>
                                     </>
                                 }
-                                <a href="#contact">Contact Us</a>
+                                <NavLink to="/contact">Contact Us</NavLink>
                             </nav>
                         )
                     }
