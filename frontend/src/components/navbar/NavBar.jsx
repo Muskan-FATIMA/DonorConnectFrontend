@@ -7,17 +7,24 @@ import { useContext, useEffect } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import { jwtDecode } from 'jwt-decode';
 import axios from "axios";
+import swal from "sweetalert2"
 
-function NavBar() {
-    const [navOpen, setNavOpen] = useState(false);
-    const [username, setUsername] = useState("");
+export default function NavBar() {
+
     const [id, setId] = useState('');
+
+    const [username, setUsername] = useState("");
+
     const [length, setLength] = useState(0)
 
     const { authTokens } = useContext(AuthContext) || {};
     const { logoutUser } = useContext(AuthContext) || {};
 
     const token = localStorage.getItem("authTokens")
+
+    const [navOpen, setNavOpen] = useState(false);
+
+    const baseURL = 'http://127.0.0.1:8000'
 
     useEffect(() => {
         if (authTokens && authTokens.access) {
@@ -38,7 +45,7 @@ function NavBar() {
     useEffect(() => {
         async function fetchViewReqNum() {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/requests/request/', {
+                const response = await axios.get(`${baseURL}/api/requests/request/`, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -48,7 +55,15 @@ function NavBar() {
                     setLength(len);
                 }
             } catch (error) {
-                console.log("Error fetching view requests:", error);
+                swal.fire({
+                    title: 'An Error Occurred while Fetching View Request Number',
+                    icon: 'error',
+                    toast: true,
+                    timer: 2000,
+                    position: 'top-right',
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                });
             }
         }
         if (id) {
@@ -67,26 +82,25 @@ function NavBar() {
             {/* for large screens */}
             <nav className="nav-links-large">
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/educational-resources">Educational Resources</NavLink>
                 {token === null ?
                     <>
-                        <NavLink to="/register">Register</NavLink>
-                        <NavLink to="/login">Login</NavLink>
+                        <NavLink to="/register"><div className="register-link">Register</div></NavLink>
+                        <NavLink to="/login"><div className="login-link">Login</div></NavLink>
                     </>
                     :
                     <>
                         <NavLink to="/add-request">Add Request</NavLink>
                         <NavLink to="/view-request">View Request<div className="view-request-badge">{length}</div></NavLink>
+                        <NavLink to="/my-request">My Request</NavLink>
+                        <NavLink to="/contact">Contact Us</NavLink>
                         <a onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</a>
                     </>
                 }
-                <NavLink to="/contact">Contact Us</NavLink>
             </nav>
             {token !== null &&
                 <div className="profile-icon-large">
-                    <NavLink to='/my-profile'>
-                        {username.charAt(0).toUpperCase()}
-                    </NavLink>
+                    <NavLink to="/my-profile">{username.charAt(0).toUpperCase()}</NavLink>
+
                 </div>
             }
 
@@ -100,7 +114,6 @@ function NavBar() {
                         navOpen && (
                             <nav className="nav-links-small">
                                 <NavLink to="/">Home</NavLink>
-                                <NavLink to="/educational-resources">Educational Resources</NavLink>
                                 {token === null ?
                                     <>
                                         <NavLink to="/register">Register</NavLink>
@@ -110,10 +123,13 @@ function NavBar() {
                                     <>
                                         <NavLink to="/add-request">Add Request</NavLink>
                                         <NavLink to="/view-request">View Request</NavLink>
+                                        <NavLink to="/my-request">My Request</NavLink>
+                                        <NavLink to="/my-activity">My Activity</NavLink>
+                                        <NavLink to="/contact">Contact Us</NavLink>
                                         <a onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</a>
                                     </>
                                 }
-                                <NavLink to="/contact">Contact Us</NavLink>
+
                             </nav>
                         )
                     }
@@ -122,5 +138,3 @@ function NavBar() {
         </header>
     );
 }
-
-export default NavBar;

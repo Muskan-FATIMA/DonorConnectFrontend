@@ -7,14 +7,19 @@ import { jwtDecode } from 'jwt-decode';
 import swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
-
 export default function MyProfile() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const [id, setId] = useState('');
+
     const [profile, setProfile] = useState(null);
+
     const { authTokens } = useContext(AuthContext) || {};
 
-    const [requestData, setRequestData] = useState([]);
-
+    const baseURL = "http://127.0.0.1:8000";
 
     useEffect(() => {
         if (authTokens && authTokens.access) {
@@ -32,45 +37,11 @@ export default function MyProfile() {
         }
     }, [authTokens]);
 
-    const baseURL = "http://127.0.0.1:8000/api";
-
-    useEffect(() => {
-        const fetchRequest = async () => {
-            try {
-                const response = await axios.get(`${baseURL}/requests/request/`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (response.status === 200) {
-                    const requests = response.data.filter(req => req.user === id);
-                    setRequestData(requests);
-                }
-            } catch (error) {
-                console.error('Error fetching requests:', error);
-                swal.fire({
-                    title: 'An Error Occurred while Fetching Requests',
-                    text: error.message || 'Internal Server Error',
-                    icon: 'error',
-                    toast: true,
-                    timer: 2000,
-                    position: 'top-right',
-                    timerProgressBar: true,
-                    showConfirmButton: false,
-                });
-            }
-        };
-
-        if (id) {
-            fetchRequest();
-        }
-    }, [id]);
-
 
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.get(`${baseURL}/profiles/profile/`, {
+                const response = await axios.get(`${baseURL}/api/profiles/profile/`, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -100,14 +71,11 @@ export default function MyProfile() {
         fetchProfile();
     }, [id]);
 
-
-
     if (!profile) {
-        return <div>Loading...</div>;
+        return <div>Request not found or invalid request.</div>;
     }
 
     return (
-
         <div className="profile-container">
             <div className="profile-details-page-container">
                 <div className="edit-btn">
@@ -118,39 +86,17 @@ export default function MyProfile() {
                     </button>
                 </div>
                 <div className="profile-details">
-                    <img src={userImg} height={180} width={180} style={{ backgroundColor: " #fffaf5", borderRadius: "50%", marginBottom: "1rem", boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.5)" }} />
-
+                    <img src={userImg} height={180} width={180} style={{ backgroundColor: "#fffaf5", borderRadius: "50%", marginBottom: "1rem", boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.5)" }} />
                     <h2 style={{ textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)" }}>{profile.fullname}  <span style={{ fontWeight: "400", fontSize: "1.2rem", textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)" }}>({profile.bldGrp})</span></h2>
                 </div>
-                <div className="side-profile-btn">
-                    <button className="myactivity-btn"><Link to="/my-activity">
-                        Achievements
-                    </Link>
-                    </button>
-                    <button className="myrequests-btn"><Link to="/my-request">
-                        {
-                            requestData.map((req, index) => (
-                                <div key={index}>
-                                    {
-                                        req.acceptedBy &&
-                                        <div className="req-accepted-badge"></div>
+                <div className="profile-page-btn-container">
 
-                                    }
-                                </div>
-
-                            ))
-                        }
-                        My Requests
-                    </Link>
-                    </button>
-                    <button className="myrequests-btn"><Link to="/feedback">
+                    <button className="profile-page-btn"><Link to="/feedback">
                         Feedback
                     </Link>
                     </button>
                 </div>
-
             </div>
         </div >
-
     );
 }

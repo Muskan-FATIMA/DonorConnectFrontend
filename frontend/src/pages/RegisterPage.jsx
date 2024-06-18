@@ -2,9 +2,8 @@ import RegPageForm from "../components/register-login-page-components/RegPageFor
 
 export default function RegisterPage() {
     return (
-        <div className="register-page-container">
+        <div className="form-page-container">
             <RegPageForm />
         </div>
     )
 }
-

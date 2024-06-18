@@ -1,11 +1,9 @@
 import Feedback from "../components/feedback-page-components/Feedback"
 
-function FeedbackPage() {
+export default function FeedbackPage() {
     return (
-        <div className="feedback-page-container">
+        <div className="form-page-container">
             <Feedback />
         </div>
     )
 }
-
-export default FeedbackPage

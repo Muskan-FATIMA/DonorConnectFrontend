@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/prop-types */
 import { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -21,8 +19,6 @@ export const AuthContext = createContext({
     newsletter: () => { },
 });
 
-const baseURL = "http://127.0.0.1:8000";
-
 const AuthProvider = ({ children }) => {
     const [authTokens, setAuthTokens] = useState(() =>
         JSON.parse(localStorage.getItem('authTokens')) || null
@@ -33,24 +29,20 @@ const AuthProvider = ({ children }) => {
         return storedTokens ? jwtDecode(storedTokens) : null;
     });
 
+    const baseURL = "http://127.0.0.1:8000";
+
     const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
 
     const registerUser = async (email, username, password, password2) => {
         try {
-            const response = await axios.post(`${baseURL}/api/auth/register/`, {
-                email,
-                username,
-                password,
-                password2
-            }, {
+            const response = await axios.post(`${baseURL}/api/auth/register/`, { email, username, password, password2 }, {
                 headers: {
                     "Content-Type": "application/json"
                 }
             });
             if (response.status === 201) {
-                navigate('/login');
                 swal.fire({
                     title: "Registration Successful, Login Now",
                     icon: "success",
@@ -60,28 +52,17 @@ const AuthProvider = ({ children }) => {
                     timerProgressBar: true,
                     showConfirmButton: false,
                 });
+                return { success: true };
             }
         } catch (error) {
-            console.error("Error registering user:", error);
-            swal.fire({
-                title: "An Error Occurred during Registration",
-                text: error.message || "Internal Server Error",
-                icon: "error",
-                toast: true,
-                timer: 2000,
-                position: 'top-right',
-                timerProgressBar: true,
-                showConfirmButton: false,
-            });
+            return { success: false, errors: error.response.data };
         }
     };
 
+
     const loginUser = async (username, password) => {
         try {
-            const response = await axios.post(`${baseURL}/api/auth/gettoken/`, {
-                username,
-                password
-            }, {
+            const response = await axios.post(`${baseURL}/api/auth/gettoken/`, { username, password }, {
                 headers: {
                     "Content-Type": "application/json"
                 }
@@ -95,7 +76,7 @@ const AuthProvider = ({ children }) => {
             }
         } catch (error) {
             swal.fire({
-                title: "Username or password does not exist",
+                title: "Wrong Credentials",
                 icon: "error",
                 toast: true,
                 timer: 2000,
@@ -123,10 +104,8 @@ const AuthProvider = ({ children }) => {
                 }
             }
         } catch (error) {
-            console.error('Error checking profile:', error);
             swal.fire({
                 title: 'An Error Occurred while Checking Profile',
-                text: error.message || 'Internal Server Error',
                 icon: 'error',
                 toast: true,
                 timer: 2000,
@@ -188,18 +167,27 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
     }, [authTokens, loading]);
 
-    const createProfile = async (user, fullname, age, gender, bldGrp, address, contact) => {
+    const createProfile = async (user, fullname, age, gender, bldGrp, address, contact, profile) => {
         try {
-            const response = await axios.post(`${baseURL}/api/profiles/profile/`, { user, fullname, age, gender, bldGrp, address, contact }, {
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
-            if (response.status === 201) {
-                navigate('/');
+            let response;
+            if (profile) {
+                response = await axios.put(`${baseURL}/api/profiles/profile/${profile.id}/`, { user, fullname, age, gender, bldGrp, address, contact }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+            } else {
+                response = await axios.post(`${baseURL}/api/profiles/profile/`, { user, fullname, age, gender, bldGrp, address, contact }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+            }
+            if (response.status === 201 || response.status === 200) {
+                navigate('/')
                 swal.fire({
-                    title: "Profile Created Successfully",
-                    icon: "success",
+                    title: 'Profile Saved Successfully',
+                    icon: 'success',
                     toast: true,
                     timer: 2000,
                     position: 'top-right',
@@ -208,11 +196,9 @@ const AuthProvider = ({ children }) => {
                 });
             }
         } catch (error) {
-            console.error("Error sending data:", error);
             swal.fire({
-                title: "An Error Occurred while Creating Profile",
-                text: "Internal Server Error",
-                icon: "error",
+                title: 'An Error Occurred while Creating Profile',
+                icon: 'error',
                 toast: true,
                 timer: 2000,
                 position: 'top-right',
@@ -222,58 +208,26 @@ const AuthProvider = ({ children }) => {
         }
     };
 
-    const createBldRequest = async (
-        user,
-        recipientName,
-        bldDonationLocation,
-        bldRequiredBeforeDate,
-        bldRequiredBeforeTime,
-        bldGrp,
-        unitsNeeded,
-        contact,
-        reason,
-        req
-    ) => {
+    const createBldRequest = async (user, recipientName, recipientAge, bldDonationLocation, bldRequiredBeforeDate, bldGrp, contact, req) => {
         try {
             let response;
             if (req) {
-                response = await axios.put(`${baseURL}/api/requests/request/${req.id}/`, {
-                    user,
-                    recipientName,
-                    bldDonationLocation,
-                    bldRequiredBeforeDate,
-                    bldRequiredBeforeTime,
-                    bldGrp,
-                    unitsNeeded,
-                    contact,
-                    reason
-                }, {
+                response = await axios.put(`${baseURL}/api/requests/request/${req.id}/`, { user, recipientName, recipientAge, bldDonationLocation, bldRequiredBeforeDate, bldGrp, contact, }, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 });
             } else {
-                response = await axios.post(`${baseURL}/api/requests/request/`, {
-                    user,
-                    recipientName,
-                    bldDonationLocation,
-                    bldRequiredBeforeDate,
-                    bldRequiredBeforeTime,
-                    bldGrp,
-                    unitsNeeded,
-                    contact,
-                    reason
-                }, {
+                response = await axios.post(`${baseURL}/api/requests/request/`, { user, recipientName, recipientAge, bldDonationLocation, bldRequiredBeforeDate, bldGrp, contact, }, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 });
             }
-
             if (response.status === 201 || response.status === 200) {
                 navigate('/my-request');
                 swal.fire({
-                    title: "Blood Request added Successfully",
+                    title: "Blood Request Added Successfully",
                     icon: "success",
                     toast: true,
                     timer: 2000,
@@ -300,17 +254,13 @@ const AuthProvider = ({ children }) => {
 
     const sendFeedback = async (recipient, donor, thanksmsg) => {
         try {
-            const response = await axios.post(`${baseURL}/api/feedbacks/feedback/`, {
-                recipient,
-                donor,
-                thanksmsg
-            }, {
+            const response = await axios.post(`${baseURL}/api/feedbacks/feedback/`, { recipient, donor, thanksmsg }, {
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${authTokens.access}`
                 }
             });
             if (response.status === 201) {
+                navigate('/')
                 swal.fire({
                     title: "Feedback Sent Successfully",
                     icon: "success",
@@ -325,7 +275,6 @@ const AuthProvider = ({ children }) => {
             console.error("Error sending feedback:", error);
             swal.fire({
                 title: "An Error Occurred while Sending Feedback",
-                text: error.message || "Internal Server Error",
                 icon: "error",
                 toast: true,
                 timer: 2000,
@@ -338,18 +287,15 @@ const AuthProvider = ({ children }) => {
 
     const contact = async (user, fullname, email, msg) => {
         try {
-            const response = await axios.post(`${baseURL}/contact/`, {
-                user, fullname, email, msg
-            }, {
+            const response = await axios.post(`${baseURL}/contact/`, { user, fullname, email, msg }, {
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${authTokens.access}`
                 }
             });
             if (response.status === 201) {
                 navigate('/')
                 swal.fire({
-                    title: "Your message was sent successfully",
+                    title: "Message Sent Successfully",
                     icon: "success",
                     toast: true,
                     timer: 2000,
@@ -361,8 +307,7 @@ const AuthProvider = ({ children }) => {
         } catch (error) {
             console.error("Error sending message:", error);
             swal.fire({
-                title: "An Error Occurred while Sending Your Message",
-                text: error.message || "Internal Server Error",
+                title: "An Error Occurred while Sending Message",
                 icon: "error",
                 toast: true,
                 timer: 2000,
@@ -373,21 +318,17 @@ const AuthProvider = ({ children }) => {
         }
     };
 
-
     const newsletter = async (user, email) => {
         try {
-            const response = await axios.post(`${baseURL}/newsletter/`, {
-                user, email
-            }, {
+            const response = await axios.post(`${baseURL}/newsletter/`, { user, email }, {
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${authTokens.access}`
                 }
             });
             if (response.status === 201) {
                 navigate('/')
                 swal.fire({
-                    title: "You have subscribed our newsletter successfully",
+                    title: "Newsletter Subscribed Successfully",
                     icon: "success",
                     toast: true,
                     timer: 2000,
@@ -399,8 +340,7 @@ const AuthProvider = ({ children }) => {
         } catch (error) {
             console.error("Error subscribing newsletter:", error);
             swal.fire({
-                title: "An Error Occurred while subscribing newsletter",
-                text: error.message || "Internal Server Error",
+                title: "An Error Occurred while Subscribing Newsletter",
                 icon: "error",
                 toast: true,
                 timer: 2000,
@@ -410,8 +350,6 @@ const AuthProvider = ({ children }) => {
             });
         }
     };
-
-
 
     const contextData = {
         user,

@@ -1,4 +1,4 @@
-import MyActivity from "../components/my-acitivity-page-components/MyActivity"
+import MyActivity from "../components/my-activity-page-components/MyActivity"
 
 export default function MyActivityPage() {
     return (

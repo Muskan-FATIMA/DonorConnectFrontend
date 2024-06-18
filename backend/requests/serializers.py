@@ -4,4 +4,4 @@ from .models import Request
 class RequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Request
-        fields =  ['user', 'id', 'recipientName', 'bldDonationLocation', 'bldRequiredBeforeDate', 'bldRequiredBeforeTime', 'bldGrp', 'unitsNeeded', 'contact', 'reason', 'acceptedBy']
+        fields =  ['user', 'id', 'recipientName', 'recipientAge', 'bldDonationLocation', 'bldRequiredBeforeDate', 'bldGrp', 'contact',  'acceptedBy']

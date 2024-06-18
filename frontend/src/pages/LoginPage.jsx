@@ -2,7 +2,7 @@ import LoginPageForm from "../components/register-login-page-components/LoginPag
 
 export default function LoginPage() {
     return (
-        <div className="login-page-container">
+        <div className="form-page-container">
             <LoginPageForm />
         </div >
     )

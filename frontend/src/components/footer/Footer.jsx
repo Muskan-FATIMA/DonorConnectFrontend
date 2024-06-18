@@ -3,23 +3,25 @@ import { Link } from "react-router-dom";
 import logo1 from "../../assets/logo-new.png"
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import CallIcon from '@mui/icons-material/Call';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { jwtDecode } from "jwt-decode";
 
-function Footer() {
+export default function Footer() {
 
     const [id, setId] = useState('');
+
     const [email, setEmail] = useState('');
 
     const year = new Date().getFullYear();
+    const token = localStorage.getItem("authTokens")
 
     const { authTokens } = useContext(AuthContext) || {};
     const { newsletter } = useContext(AuthContext) || {};
-
 
     useEffect(() => {
         if (authTokens && authTokens.access) {
@@ -42,11 +44,11 @@ function Footer() {
             id,
             email,
         )
-        setEmail('');
+        setEmail('')
     }
 
     return (
-        <footer id="contact" className="footer-section">
+        <footer className="footer-section">
             <div className="footer-container">
                 <div className="footer-division">
                     <Link to='/'>
@@ -63,10 +65,25 @@ function Footer() {
                     <h2>Links</h2>
                     <div className="footer-nav-links">
                         <Link to="/">Home</Link>
-                        <Link to="/add-request">Add Request</Link>
-                        <Link to="/view-request">View Request</Link>
-                        <Link to="/contact">Contact Us</Link>
-                        <Link to="/educational-resources">Educational Resources</Link>
+                        {token === null ?
+                            <>
+                                <Link to="/register">Register</Link>
+                                <Link to="/login">Login</Link>
+                                <Link to="/blood-guide">Blood Guide</Link>
+                                <Link to="/our-services">Our Services</Link>
+                            </>
+                            :
+                            <>
+                                <Link to="/add-request">Add Request</Link>
+                                <Link to="/view-request">View Request</Link>
+                                <Link to="/my-request">My Request</Link>
+                                <Link to="/contact">Contact Us</Link>
+
+                            </>
+                        }
+
+
+
                     </div>
                 </div>
                 <div className="footer-division">
@@ -79,15 +96,15 @@ function Footer() {
                     <div className="social-links-container ">
                         <h2>Social Links</h2>
                         <Link to="mailto:donorconnect001@gmail.com" target="_blank"><EmailIcon /></Link>
-                        <Link to="https://www.linkedin.com/in/muskanperween/" target="_blank"><LinkedInIcon /></Link>
-                        <Link to="https://github.com/NaimaGulnar/DonorConnectNew" target="_blank"><GitHubIcon /></Link>
+                        <Link to="" target="_blank"><CallIcon /></Link>
+
+                        <Link to="" target="_blank"><InstagramIcon /></Link>
+                        <Link to="https://www.linkedin.com/in/nsgulnar/" target="_blank"><LinkedInIcon /></Link>
                     </div>
                 </div>
             </div>
             <hr />
-            <p className="copyright"> Copyright &copy; {year} | DonorConnect | All Rights Reserved.</p>
+            <p className="copyright"> Copyright &copy; {year} | Donor Connect | Developed with ❤️ by Gulnar and Muskan.</p>
         </footer >
     )
 }
-
-export default Footer

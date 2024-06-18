@@ -1,11 +1,9 @@
 import Contact from "../components/contact-page-components/Contact"
 
-function ContactPage() {
+export default function ContactPage() {
     return (
-        <div className="contact-page-container">
+        <div className="form-page-container">
             <Contact />
         </div>
     )
 }
-
-export default ContactPage

@@ -1,11 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
-import canYouDonateBlood from "../../assets/can-you-donate-blood.webp"
+
+import canYouDonateBlood from "../../assets/can-you-donate-blood.jpg"
 
 export default function WhoCanDonateBlood() {
     return (
-        <div className="who-can-donate-blood">
+        <div className="educational-resources-section">
             <h1 >Who Can Donate Blood?</h1>
-            <h3 className="desc">Generally, individuals who meet certain eligibility criteria can donate blood. While specific criteria may vary slightly depending on the country and blood donation organization, here's a general overview of who can donate blood:</h3>
+            <h3>Generally, individuals who meet certain eligibility criteria can donate blood. While specific criteria may vary slightly depending on the country and blood donation organization, here's a general overview of who can donate blood:</h3>
             <div>
                 <img src={canYouDonateBlood} />
                 <ul>
