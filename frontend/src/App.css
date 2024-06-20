@@ -557,12 +557,17 @@ hr {
 .webguide-steps {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: justify;
   margin-bottom: 3rem;
 }
-
+.webguide-steps-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .webguide-inner-img {
   width: 50%;
   padding: 2rem;
@@ -577,10 +582,11 @@ hr {
   padding: 3rem 8rem;
   text-align: justify;
 }
-.webguide-steps-inner-content h2,
+.webguide-steps-inner-content
 h4 {
   color: var(--red-color);
-  margin: 0.5rem 0;
+  margin: 1rem 0 0.2rem 0;
+  font-size: 1.4rem;
 }
 .webguide-steps-inner-content p {
   color: var(--text-color);

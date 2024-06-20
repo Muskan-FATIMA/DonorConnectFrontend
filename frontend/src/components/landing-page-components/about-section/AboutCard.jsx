@@ -7,7 +7,7 @@ import visionImg from "../../../assets/im1.jpg"
 function AboutCard() {
     return (
         <>
-            <h1 className="about-card-section-heading">Our Purpose</h1>
+            <h1 className="about-card-section-heading">What Drives Us</h1>
             <div className="about-card-main-container">
                 <div className="mission innerdiv">
                     <div className="card-img">
