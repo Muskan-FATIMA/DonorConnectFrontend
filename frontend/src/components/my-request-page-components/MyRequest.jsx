@@ -38,7 +38,7 @@ export default function MyRequest() {
         }
     }, [authTokens]);
 
-    const baseURL = "http://127.0.0.1:8000";
+    const baseURL = "https://donorconnect.pythonanywhere.com";
 
     useEffect(() => {
         const fetchRequest = async () => {
