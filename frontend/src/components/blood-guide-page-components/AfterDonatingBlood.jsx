@@ -3,7 +3,7 @@ import afterDonatingBlood from "../../assets/after-donating-blood.webp"
 
 export default function AfterDonatingBlood() {
     return (
-        <div className="educational-resources-section">
+        <div className="blood-guide-section">
             <h1>Post Donation Advice To Blood Donors</h1>
             <h3>After donating blood, a person may feel nauseous, lightheaded, or dizzy. People can usually return to most daily activities within a few hours of donating. Certain foods and drinks can help the body recover.</h3>
             <div>

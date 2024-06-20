@@ -6,13 +6,13 @@ import refreshment from "../../assets/refreshment.jpeg"
 
 export default function DonationProcess() {
     return (
-        <div className="educational-resources-section">
+        <div className="blood-guide-section">
             <h1 >The Donation Process</h1>
             <h3>The blood donation process from the time you arrive until the time you leave takes about an hour. The donation itself is only about 8-10 minutes on average. The general donation process is outlined below.</h3>
-            <div id="main-div">
-                <div id="another-div">
+            <div id="blood-guide-main-container">
+                <div id="blood-guide-container">
                     <h6>Donor Registration Phase</h6>
-                    <div id="another-another-div">
+                    <div id="blood-guide-content">
                         <img src={registration} />
                         <p>
                             When you arrive at the blood donation center or mobile blood drive, you'll be greeted by staff or volunteers who will guide you through the donation process.
@@ -21,9 +21,9 @@ export default function DonationProcess() {
                         </p>
                     </div>
                 </div>
-                <div id="another-div">
+                <div id="blood-guide-container">
                     <h6>Health Screening Phase</h6>
-                    <div id="another-another-div">
+                    <div id="blood-guide-content">
                         <p>
                             After registration, you'll undergo a health screening to ensure that you meet the eligibility criteria for blood donation. You'll be asked questions about your medical history, recent travel, and lifestyle factors that could affect the safety of your donation. This information helps identify any potential risk factors for transmitting infections through blood donation.
                             A staff member will take your vital signs, including your temperature, blood pressure, and pulse rate. They may also measure your haemoglobin level by pricking your finger and collecting a small blood sample.
@@ -31,9 +31,9 @@ export default function DonationProcess() {
                         <img src={healthHistory} />
                     </div>
                 </div>
-                <div id="another-div">
+                <div id="blood-guide-container">
                     <h6>Blood Donation Phase</h6>
-                    <div id="another-another-div">
+                    <div id="blood-guide-content">
                         <img src={donation} />
                         <p>
                             If you pass the health screening and meet the eligibility criteria, you'll proceed to the donation area.
@@ -43,9 +43,9 @@ export default function DonationProcess() {
                         </p>
                     </div>
                 </div>
-                <div id="another-div">
+                <div id="blood-guide-container">
                     <h6>Refreshment and recovery</h6>
-                    <div id="another-another-div">
+                    <div id="blood-guide-content">
                         <p>
                             After donating blood, you'll be guided to a designated area where you can rest and recover.
                             You'll be offered refreshments like water, juice, and snacks to help replenish fluids and boost your energy levels.

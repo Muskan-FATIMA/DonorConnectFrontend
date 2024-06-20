@@ -3,7 +3,7 @@ import canYouDonateBlood from "../../assets/can-you-donate-blood.jpg"
 
 export default function WhoCanDonateBlood() {
     return (
-        <div className="educational-resources-section">
+        <div className="blood-guide-section">
             <h1 >Who Can Donate Blood?</h1>
             <h3>Generally, individuals who meet certain eligibility criteria can donate blood. While specific criteria may vary slightly depending on the country and blood donation organization, here's a general overview of who can donate blood:</h3>
             <div>

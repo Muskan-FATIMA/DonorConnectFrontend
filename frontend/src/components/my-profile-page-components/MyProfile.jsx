@@ -1,4 +1,4 @@
-import userImg from "../../../src/assets/user.png";
+import userImg from "../../../src/assets/user2.png";
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
@@ -76,8 +76,8 @@ export default function MyProfile() {
     }
 
     return (
-        <div className="profile-container">
-            <div className="profile-details-page-container">
+        <div className="profile-main-container">
+            <div className="profile-container">
                 <div className="edit-btn">
                     <button className="edit-profile-btn">
                         <Link to="/profile-form" state={{ profile }}>
@@ -86,16 +86,13 @@ export default function MyProfile() {
                     </button>
                 </div>
                 <div className="profile-details">
-                    <img src={userImg} height={180} width={180} style={{ backgroundColor: "#fffaf5", borderRadius: "50%", marginBottom: "1rem", boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.5)" }} />
-                    <h2 style={{ textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)" }}>{profile.fullname}  <span style={{ fontWeight: "400", fontSize: "1.2rem", textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)" }}>({profile.bldGrp})</span></h2>
-                </div>
-                <div className="profile-page-btn-container">
+                    <img src={userImg} height={180} width={180} style={{ backgroundColor: "rgb(173, 14, 14)", borderRadius: "50%", marginBottom: "2.2rem" }} />
 
-                    <button className="profile-page-btn"><Link to="/feedback">
-                        Feedback
-                    </Link>
-                    </button>
+                    <h2 style={{ textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)" }}>{profile.fullname} </h2>
+                    <p style={{ fontWeight: "400", fontSize: "1.2rem", textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)" }}>Blood Grp : ({profile.bldGrp})</p>
                 </div>
+
+
             </div>
         </div >
     );

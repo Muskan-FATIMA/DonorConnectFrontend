@@ -100,28 +100,32 @@ export default function ViewRequest() {
             {requestData.length > 0 ? (
                 <>
                     <h2 className="req-heading">REQUESTS...</h2>
-                    <div className="req-container">
+                    <div className="req-cards-container">
                         {requestData.map((req, index) => (
                             <div className="req-card" key={index}>
-                                <div className="req-card-innertext">
+                                <div className="req-card-header">
                                     <h2>{req.recipientName}</h2>
-                                    <p>Blood Group : {req.bldGrp}</p>
-                                    <p>Required Before : {req.bldRequiredBeforeDate}</p>
-                                    <p>Location : {req.bldDonationLocation}</p>
-                                    <div className="req-card-btn-container">
-                                        {req.acceptedBy ? (
-                                            <p id="req-accepted-btn">Accepted</p>
-                                        ) : (
-                                            <>
-                                                <button className="req-card-btn" onClick={() => handleAccept(req.id)}>
-                                                    Accept
-                                                </button>
+                                </div>
+                                <div className="req-card-body">
+                                    <p> <strong>Blood Group :</strong>  {req.bldGrp}</p>
+                                    <p><strong>Required Before :</strong> {req.bldRequiredBeforeDate}</p>
+                                    <p><strong>Location :</strong> {req.bldDonationLocation}</p>
+                                </div>
 
-                                            </>
-                                        )}
-                                    </div>
+                                <div className="req-card-footer">
+                                    {req.acceptedBy ? (
+                                        <div className="accepted-badge">ACCEPTED</div>
+                                    ) : (
+                                        <>
+                                            <button className="view-card-btn" onClick={() => handleAccept(req.id)}>
+                                                Accept
+                                            </button>
+
+                                        </>
+                                    )}
                                 </div>
                             </div>
+
                         ))}
                     </div>
                 </>
@@ -129,8 +133,9 @@ export default function ViewRequest() {
                 <div className="if-empty">
                     <p>No Requests Yet !</p>
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
 
     );
 }

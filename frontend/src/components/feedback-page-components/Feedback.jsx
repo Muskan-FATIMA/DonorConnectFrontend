@@ -21,13 +21,16 @@ export default function Feedback() {
     return (
         <>
             <div className="form-main-container">
-                <h1 className="form-heading">DROP US A MESSAGE</h1>
-                <form className="form-container" onSubmit={handleSubmit} >
-                    <input type="text" name="recipient" value={recipient} onChange={(e) => setRecipient(e.target.value)} placeholder="Recipient's full name*" />
-                    <input type="text" name="donor" value={donor} onChange={(e) => setDonor(e.target.value)} placeholder="Donor's full name" />
-                    <textarea className="feedback-msg-box" type="text" name="thanksmsg" value={thanksmsg} onChange={(e) => setThanksmsg(e.target.value)} cols={20} rows={10} placeholder="How Did Donor Connect Help You?" />
-                    <button type="submit" className="form-btn">Submit</button>
-                </form>
+                <h1 className="form-heading">Share Your Feedback!</h1>
+                <div className="form-container">
+                    <p>Let us know how Donor Connect helped you!</p>
+                    <form className="form-container" onSubmit={handleSubmit} >
+                        <input type="text" name="recipient" value={recipient} onChange={(e) => setRecipient(e.target.value)} placeholder="Recipient's full name*" />
+                        <input type="text" name="donor" value={donor} onChange={(e) => setDonor(e.target.value)} placeholder="Donor's full name" />
+                        <textarea className="feedback-msg-box" type="text" name="thanksmsg" value={thanksmsg} onChange={(e) => setThanksmsg(e.target.value)} cols={20} rows={10} placeholder="Your Feedback*" />
+                        <button type="submit" className="form-btn">Submit</button>
+                    </form>
+                </div>
             </div>
         </>
     )

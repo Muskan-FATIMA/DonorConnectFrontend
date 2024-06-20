@@ -7,6 +7,8 @@ import swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function MyRequest() {
     useEffect(() => {
@@ -130,45 +132,64 @@ export default function MyRequest() {
         return now.isAfter(expiryDate);
     }
 
+    const [showFeedbackButton, setShowFeedbackButton] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowFeedbackButton(true);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    const handleCloseButton = () => {
+        setShowFeedbackButton(false);
+    };
+
     return (
         <div className="req-main-container">
+            <div className={`feedback-button-container ${showFeedbackButton ? 'show' : ''}`}>
+                <button className="close-button" onClick={handleCloseButton}>×</button>
+                <Link to="/feedback">
+                    <button className="feedback-button">Give Feedback</button>
+                </Link>
+            </div>
             {requestData.length > 0 ? (
                 <>
                     <h2 className='req-heading'>MY REQUESTS...</h2>
-                    <div className="req-container">
+                    <div className="req-cards-container">
                         {requestData.map((req, index) => (
                             <div className="req-card" key={index}>
-                                <div className="req-card-innertext">
-                                    {req.acceptedBy &&
-                                        <div className="accepted-badge">ACCEPTED</div>
-                                    }
+                                <div className="req-card-header">
                                     <h2>{req.recipientName}</h2>
-                                    <p>Age : {req.recipientAge} yrs</p>
 
-                                    <p>Blood Group : {req.bldGrp}</p>
-                                    <p>Date : {req.bldRequiredBeforeDate}</p>
-                                    <p>Contact : {req.contact}</p>
-                                    <p>Location : {req.bldDonationLocation}</p>
-
+                                    {req.acceptedBy && (
+                                        <div className="accepted-badge">ACCEPTED</div>
+                                    )}
+                                </div>
+                                <div className="req-card-body">
+                                    <p><strong>Age:</strong> {req.recipientAge} yrs</p>
+                                    <p><strong>Blood Group:</strong> {req.bldGrp}</p>
+                                    <p><strong>Required Before:</strong> {moment(req.bldRequiredBeforeDate).format('DD/MM/YYYY')}</p>
+                                    <p><strong>Contact:</strong> {req.contact}</p>
+                                    <p><strong>Location:</strong> {req.bldDonationLocation}</p>
+                                </div>
+                                <div className="req-card-footer">
                                     {req.acceptedBy ? (
-                                        <div className="req-card-btn-container">
-
-                                            <button className="req-card-btn" onClick={() => handleDelete(req.id)}>
-                                                Delete
-                                            </button>
+                                        <div className="req-card-btn" onClick={() => handleDelete(req.id)}>
+                                            <DeleteIcon />
                                         </div>
                                     ) : (
-                                        <div className="req-card-btn-container">
-                                            <button className="req-card-btn">
+                                        <>
+                                            <div className="req-card-btn">
                                                 <Link to="/add-request" state={{ req }}>
-                                                    Edit
+                                                    <EditIcon />
                                                 </Link>
-                                            </button>
-                                            <button className="req-card-btn" onClick={() => handleDelete(req.id)}>
-                                                Delete
-                                            </button>
-
-                                        </div>
+                                            </div>
+                                            <div className="req-card-btn" onClick={() => handleDelete(req.id)}>
+                                                <DeleteIcon />
+                                            </div>
+                                        </>
                                     )}
                                 </div>
                             </div>
@@ -177,10 +198,16 @@ export default function MyRequest() {
                 </>
             ) : (
                 <div className='if-empty'>
-                    <p> No Requests Added !</p>
+                    <p>No Requests Added!</p>
                 </div>
             )}
         </div>
-
     )
 }
+
+
+
+
+
+
+

@@ -1,6 +1,10 @@
-import welcomeImg from "../../../assets/welcome.png"
+
+import welcomeImg from "../../../assets/welcome.png";
+
 
 export default function WelcomeSection() {
+
+
     return (
         <div className="welcome-section-main-container">
             <div className="welcome-content">
@@ -9,9 +13,9 @@ export default function WelcomeSection() {
                 <p className="welcome-para">Where A Simple Act Of Kindness Can Save Lives!</p>
             </div>
             <div className="welcome-img">
-                <img src={welcomeImg} height={400} width={400} />
+                <img src={welcomeImg} alt="Welcome" />
             </div>
-        </div>
-    )
-}
 
+        </div>
+    );
+}

@@ -44,17 +44,51 @@ export default function Contact() {
     return (
         <>
             <div className="form-main-container">
-                <h1 className="form-heading">DROP US A MESSAGE !</h1>
+                <h2 className="form-heading">Drop Us a Message!</h2>
                 <form className="form-container" onSubmit={handleSubmit}>
 
-                    <input type="text" name="fullname" value={fullname} onChange={(e) => setFullname(e.target.value)} placeholder="Full Name*" />
+                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
 
-                    <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email*" />
 
-                    <textarea type="text" name="msg" cols={20} rows={10} value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="Type something..." />
-                    <button type="submit" className="form-btn">Send</button>
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        value={fullname}
+                        onChange={(e) => setFullname(e.target.value)}
+                        placeholder="Enter your full name*"
+                        required
+                    />
+
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email address*"
+                    />
+
+
+
+                    <textarea
+                        id="msg"
+                        name="msg"
+                        cols={30}
+                        rows={10}
+                        value={msg}
+                        onChange={(e) => setMsg(e.target.value)}
+                        placeholder="Type your message here*"
+                        required
+                    />
+
+
+                    <button type="submit" className="form-btn">Send Message</button>
                 </form>
             </div>
         </>
-    )
+    );
+
 }
