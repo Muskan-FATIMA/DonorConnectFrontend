@@ -37,7 +37,6 @@ export default function MyProfile() {
         }
     }, [authTokens]);
 
-
     useEffect(() => {
         const fetchProfile = async () => {
             try {
@@ -57,7 +56,6 @@ export default function MyProfile() {
                 console.error('Error fetching profile:', error);
                 swal.fire({
                     title: 'An Error Occurred while Fetching Profile',
-                    text: error.message || 'Internal Server Error',
                     icon: 'error',
                     toast: true,
                     timer: 2000,
@@ -87,12 +85,9 @@ export default function MyProfile() {
                 </div>
                 <div className="profile-details">
                     <img src={userImg} height={180} width={180} style={{ backgroundColor: "rgb(173, 14, 14)", borderRadius: "50%", marginBottom: "2.2rem" }} />
-
-                    <h2 style={{ textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)" }}>{profile.fullname} </h2>
-                    <p style={{ fontWeight: "400", fontSize: "1.2rem", textShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)" }}>Blood Grp : ({profile.bldGrp})</p>
+                    <h2 style={{ textShadow: "2px 2px 3px rgba(0, 0, 0, 0.3)" }}>{profile.fullname} </h2>
+                    <p style={{ fontWeight: "400", fontSize: "1.2rem", textShadow: "2px 2px 3px rgba(0, 0, 0, 0.2)" }}>Blood Grp : ({profile.bldGrp})</p>
                 </div>
-
-
             </div>
         </div >
     );

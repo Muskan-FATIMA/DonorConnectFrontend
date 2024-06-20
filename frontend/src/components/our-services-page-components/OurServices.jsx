@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect } from 'react';
-import guideImg1 from "../../assets/homepage1.png"
-import guideImg2 from "../../assets/homepage2.png"
-import guideImg3 from "../../assets/viewreq.png"
-import guideImg4 from "../../assets/profilepage.png"
+// import guideImg1 from "../../assets/homepage1.png"
+// import guideImg2 from "../../assets/homepage2.png"
+// import guideImg3 from "../../assets/viewreq.png"
+// import guideImg4 from "../../assets/profilepage.png"
 
 function OurServices() {
     useEffect(() => {
@@ -33,13 +34,13 @@ function OurServices() {
                             </p>
                         </div>
                         <div className="webguide-inner-img">
-                            <img src={guideImg1} alt="" />
+                            {/* <img src={guideImg1} alt="" /> */}
                         </div>
 
                     </div>
                     <div className="webguide-steps">
                         <div className="webguide-inner-img">
-                            <img src={guideImg2} alt="" />
+                            {/* <img src={guideImg2} alt="" /> */}
                         </div>
                         <div className="webguide-steps-inner-content">
                             <h2>Using Donor Connect</h2>
@@ -61,12 +62,12 @@ function OurServices() {
                                 Step 2: Find a request that matches your blood type and contact the requester to arrange the donation.</p>
                         </div>
                         <div className="webguide-inner-img">
-                            <img src={guideImg3} alt="" />
+                            {/* <img src={guideImg3} alt="" /> */}
                         </div>
                     </div>
                     <div className="webguide-steps">
                         <div className="webguide-inner-img">
-                            <img src={guideImg4} alt="" />
+                            {/* <img src={guideImg4} alt="" /> */}
                         </div>
                         <div className="webguide-steps-inner-content">
                             <h2>Profile Management</h2>

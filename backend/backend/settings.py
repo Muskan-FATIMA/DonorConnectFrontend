@@ -148,3 +148,13 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=50),
 }
+
+
+
+# Email sending settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'donorconnect001@gmail.com'
+EMAIL_HOST_PASSWORD = 'rter ewts ddwp ycro'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

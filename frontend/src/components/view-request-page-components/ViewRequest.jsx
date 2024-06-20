@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
@@ -6,6 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 import swal from 'sweetalert2';
 
 export default function ViewRequest() {
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -14,7 +14,10 @@ export default function ViewRequest() {
 
     const [requestData, setRequestData] = useState([]);
 
+    const [loadingStates, setLoadingStates] = useState({});
+
     const { authTokens } = useContext(AuthContext) || {};
+
 
     useEffect(() => {
         if (authTokens && authTokens.access) {
@@ -60,7 +63,9 @@ export default function ViewRequest() {
         }
     }, [id]);
 
+
     const handleAccept = async (requestId) => {
+        setLoadingStates(prev => ({ ...prev, [requestId]: true }));
         try {
             const response = await axios.post(`${baseURL}/api/requests/request/${requestId}/accept/`, {}, {
                 headers: {
@@ -70,7 +75,7 @@ export default function ViewRequest() {
             });
             if (response.status === 200) {
                 swal.fire({
-                    title: `Request Accepted Successfully.Check your mail for receipient's full details `,
+                    title: `Request Accepted Successfully, Please check your email for recipient's full details`,
                     icon: 'success',
                     toast: true,
                     timer: 2000,
@@ -78,6 +83,11 @@ export default function ViewRequest() {
                     timerProgressBar: true,
                     showConfirmButton: false,
                 });
+                setRequestData(prevData =>
+                    prevData.map(req =>
+                        req.id === requestId ? { ...req, acceptedBy: id } : req
+                    )
+                );
                 console.log(response.data);
             }
         } catch (error) {
@@ -92,8 +102,10 @@ export default function ViewRequest() {
                 showConfirmButton: false,
             });
         }
+        finally {
+            setLoadingStates(prev => ({ ...prev, [requestId]: false }));
+        }
     };
-
 
     return (
         <div className="req-main-container">
@@ -111,21 +123,20 @@ export default function ViewRequest() {
                                     <p><strong>Required Before :</strong> {req.bldRequiredBeforeDate}</p>
                                     <p><strong>Location :</strong> {req.bldDonationLocation}</p>
                                 </div>
-
                                 <div className="req-card-footer">
                                     {req.acceptedBy ? (
                                         <div className="accepted-badge">ACCEPTED</div>
                                     ) : (
                                         <>
-                                            <button className="view-card-btn" onClick={() => handleAccept(req.id)}>
-                                                Accept
-                                            </button>
+                                            {loadingStates[req.id] && <div style={{ textAlign: "center", color: "black" }}>Please wait...</div>}
 
+                                            <button className="view-card-btn" onClick={() => handleAccept(req.id)}>
+                                                ACCEPT
+                                            </button>
                                         </>
                                     )}
                                 </div>
                             </div>
-
                         ))}
                     </div>
                 </>
@@ -136,6 +147,5 @@ export default function ViewRequest() {
             )
             }
         </div >
-
     );
 }

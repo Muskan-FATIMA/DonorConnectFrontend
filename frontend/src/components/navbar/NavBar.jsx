@@ -90,7 +90,7 @@ export default function NavBar() {
                     :
                     <>
                         <NavLink to="/add-request">Add Request</NavLink>
-                        <NavLink to="/view-request">View Request<div className="view-request-badge">{length}</div></NavLink>
+                        <NavLink to="/view-request"><span className="view-req-link">View Request<span className="view-request-badge">{length}</span></span></NavLink>
                         <NavLink to="/my-request">My Request</NavLink>
                         <NavLink to="/contact">Contact Us</NavLink>
                         <a onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</a>
@@ -98,9 +98,8 @@ export default function NavBar() {
                 }
             </nav>
             {token !== null &&
-                <div className="profile-icon-large">
+                <div className="profile profile-icon-large">
                     <NavLink to="/my-profile">{username.charAt(0).toUpperCase()}</NavLink>
-
                 </div>
             }
 
@@ -122,18 +121,21 @@ export default function NavBar() {
                                     :
                                     <>
                                         <NavLink to="/add-request">Add Request</NavLink>
-                                        <NavLink to="/view-request">View Request</NavLink>
+                                        <NavLink to="/view-request"><span className="view-req-link">View Request<span className="view-request-badge">{length}</span></span></NavLink>
                                         <NavLink to="/my-request">My Request</NavLink>
-                                        <NavLink to="/my-activity">My Activity</NavLink>
                                         <NavLink to="/contact">Contact Us</NavLink>
                                         <a onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</a>
                                     </>
                                 }
-
                             </nav>
                         )
                     }
                 </div>
+                {token !== null &&
+                    <div className="profile profile-icon-small">
+                        <NavLink to="/my-profile">{username.charAt(0).toUpperCase()}</NavLink>
+                    </div>
+                }
             </div>
         </header>
     );

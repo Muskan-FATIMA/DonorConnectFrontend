@@ -1,4 +1,5 @@
-
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
@@ -11,6 +12,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function MyRequest() {
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -18,7 +20,6 @@ export default function MyRequest() {
     const [id, setId] = useState('');
 
     const [requestData, setRequestData] = useState([]);
-    const [acceptedUser, setAcceptedUser] = useState(null);
 
     const { authTokens } = useContext(AuthContext) || {};
 
@@ -70,14 +71,6 @@ export default function MyRequest() {
         }
     }, [id]);
 
-
-
-    useEffect(() => {
-        if (acceptedUser) {
-            navigate('/show-donor-detail', { state: { acceptedUser } });
-        }
-    }, [acceptedUser]);
-
     const handleDelete = async (deleteId) => {
         try {
             const response = await axios.delete(`${baseURL}/api/requests/request/${deleteId}/`, {
@@ -113,7 +106,6 @@ export default function MyRequest() {
         }
     };
 
-
     const handleDeleteExpiredRequests = () => {
         requestData.forEach(req => {
             if (isExpired(req)) {
@@ -133,15 +125,12 @@ export default function MyRequest() {
     }
 
     const [showFeedbackButton, setShowFeedbackButton] = useState(false);
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowFeedbackButton(true);
         }, 3000);
-
         return () => clearTimeout(timer);
     }, []);
-
     const handleCloseButton = () => {
         setShowFeedbackButton(false);
     };
@@ -162,7 +151,6 @@ export default function MyRequest() {
                             <div className="req-card" key={index}>
                                 <div className="req-card-header">
                                     <h2>{req.recipientName}</h2>
-
                                     {req.acceptedBy && (
                                         <div className="accepted-badge">ACCEPTED</div>
                                     )}
@@ -204,10 +192,3 @@ export default function MyRequest() {
         </div>
     )
 }
-
-
-
-
-
-
-

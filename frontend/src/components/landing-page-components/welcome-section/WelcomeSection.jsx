@@ -1,10 +1,6 @@
-
 import welcomeImg from "../../../assets/welcome.png";
 
-
 export default function WelcomeSection() {
-
-
     return (
         <div className="welcome-section-main-container">
             <div className="welcome-content">
@@ -15,7 +11,6 @@ export default function WelcomeSection() {
             <div className="welcome-img">
                 <img src={welcomeImg} alt="Welcome" />
             </div>
-
         </div>
     );
 }

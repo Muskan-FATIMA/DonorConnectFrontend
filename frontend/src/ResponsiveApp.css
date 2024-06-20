@@ -1,32 +1,21 @@
 /* ---------------------- FOR SMALL-SIZED SCREENS ---------------------------- */
 
-/* -------- Declaring Variables Start --------- */
+/* -------- Declaring Variables --------- */
 :root {
   --background: linear-gradient(
-    to left,
-    rgb(255, 171, 175),
-    rgb(252, 112, 119)
+    to right,
+    rgb(255, 138, 146),
+    rgb(255, 175, 184)
   );
   --dark-color: rgb(97, 37, 53);
-  --red-color: rgb(192, 13, 13);
+  --red-color: rgb(173, 14, 14);
   --light-color: #fffaf5;
   --white: rgb(255, 253, 255);
   --black: rgb(0, 0, 0);
+  --text-color: #545252e8;
 }
-/* -------- Declaring Variables End --------- */
 
 /* -------- Animation Keyframes ------- */
-
-@keyframes slideLeft {
-  0% {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
 @keyframes slideRight {
   0% {
     transform: translateX(-100px);
@@ -37,13 +26,63 @@
     opacity: 1;
   }
 }
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideBottom {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* -------- Navbar ------- */
 @media screen and (max-width: 1200px) {
   header {
     padding: 2rem 1rem;
   }
+  .logo-container {
+    width: 60px;
+    height: 60px;
+  }
   .nav-links-large a {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+  }
+  .profile-icon-large {
+    height: 2.5rem;
+    width: 2.5rem;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -54,17 +93,33 @@
   .nav-links-large a {
     font-size: 1rem;
   }
+  .profile-icon-large {
+    height: 2.3rem;
+    width: 2.3rem;
+    font-size: 1.2rem;
+  }
 }
 @media screen and (max-width: 992px) {
   header {
     padding: 2rem 0.5rem;
   }
-  .nav-links-large a {
-    margin: 0 0.5rem;
+  .logo-container {
+    width: 50px;
+    height: 50px;
   }
-  .profile-icon-large svg {
-    width: 35px;
-    height: 35px;
+  .nav-links-large a {
+    margin: 0 0.9rem;
+    font-size: 0.9rem;
+  }
+  .view-request-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+  .profile-icon-large {
+    height: 2.1rem;
+    width: 2.1rem;
+    font-size: 1.1rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -82,17 +137,10 @@
     justify-content: center;
     align-items: center;
   }
-  .profile-icon-small svg {
-    width: 35px;
-    height: 35px;
-    color: var(--red-color);
-    animation: slideLeft 1s ease forwards;
-  }
   .hamburger-container svg {
     font-size: 1.8rem;
     color: var(--red-color);
-    margin-left: 1rem;
-    animation: slideLeft 1s ease forwards;
+    margin: 0 1.5rem -0.5rem 0;
   }
   .nav-links-small {
     position: absolute;
@@ -112,173 +160,29 @@
   .nav-links-small a {
     text-decoration: none;
     font-size: 0.9rem;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.5rem;
     color: var(--red-color);
-    font-weight: 500;
+    font-weight: 550;
     transition: 0.5s;
     animation: slideTop 0.5s ease forwards;
+  }
+  .profile-icon-small {
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.2rem;
   }
 }
 @media screen and (max-width: 480px) {
   header {
     padding: 2rem 0.5rem;
   }
-}
-
-
-/* -------- Welcome Section ------- */
-@media screen and (max-width: 1200px) {
-  .welcome-content h1 {
-    font-size: 3.2rem;
+  .hamburger-container svg {
+    font-size: 1.6rem;
   }
-  .welcome-content h3 {
-    font-size: 2.2rem;
-  }
-  .welcome-para {
-    font-size: 1.5rem;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .welcome-section-main-container {
-    padding: 0 5%;
-  }
-  .welcome-content h1 {
-    font-size: 3rem;
-  }
-  .welcome-content h3 {
-    font-size: 2rem;
-  }
-
-  .welcome-section-register-btn,
-  .welcome-section-login-btn {
-    padding: 3% 5%;
-    font-size: 1.3rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .welcome-content {
-    width: 100%;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-  }
-  .welcome-content h1 {
-    font-size: 2.7rem;
-  }
-  .welcome-content span {
-    font-size: 3.5rem;
-  }
-  .welcome-para1 {
-    font-size: 1.5rem;
-  }
-  .welcome-section-btns {
-    justify-content: center;
-    width: 100%;
-  }
-  .welcome-section-register-btn,
-  .welcome-section-login-btn {
-    padding: 2% 5%;
-    font-size: 1.4rem;
-  }
-  .welcome-img {
-    display: none;
-  }
-}
-@media screen and (max-width: 480px) {
-  .welcome-content h3 {
-    font-size: 2rem;
-  }
-  .welcome-content span {
-    font-size: 2.6rem;
-  }
-  .welcome-para {
-    font-size: 1.2rem;
-  }
-  .welcome-section-btns {
-    flex-direction: column;
-  }
-  .welcome-section-register-btn,
-  .welcome-section-login-btn {
-    font-size: 1.2rem;
-    padding: 4% 7%;
-    margin: 0 0 1rem 0;
-  }
-}
-/* -------- About Section and Success Stories Section ------- */
-@media screen and (max-width: 1200px) {
-  .about-section-top-slogan {
-    padding: 3rem 4rem;
-  }
-  .about-content-para {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  .about-content {
-    padding: 0 3rem;
-    width: 60%;
-  }
-  .success-stories-card {
-    width: 45%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .about-content {
-    width: 100%;
-  }
-  .about-image-container {
-    width: 80%;
-  }
-  .quotation p {
-    font-size: 1.2rem;
-  }
-  .success-stories-heading {
-    font-size: 2.5rem;
-  }
-  .success-stories-card-container {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .about-section-top-slogan {
-    padding: 3rem 2rem;
-  }
-  .success-stories-heading {
-    font-size: 2rem;
-  }
-  .success-stories-card {
-    width: 80%;
-  }
-  .about-section {
-    flex-direction: column;
-  }
-}
-@media screen and (max-width: 480px) {
-  .about-section-top-slogan {
-    padding: 3rem 3rem;
-    margin: 0 3rem 0 3rem;
-  }
-  .about-section-top-slogan-btn {
-    padding: 3% 5%;
-    margin-top: 8%;
-  }
-  .about-content {
-    padding: 0px 0rem;
-  }
-  .about-image-container {
-    width: 100%;
-  }
-  .quotation p {
-    font-size: 1rem;
-  }
-  .success-stories-heading {
-    font-size: 1.8rem;
-  }
-  .success-stories-card {
-    width: 100%;
-    padding: 1rem 1rem 1rem 1rem;
+  .profile-icon-small {
+    height: 2.2rem;
+    width: 2.2rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -307,6 +211,9 @@
   }
   .social-links-container h2 {
     font-size: 1.05rem;
+  }
+  .copyright {
+    font-size: 0.8rem;
   }
 }
 @media screen and (max-width: 992px) {
@@ -360,577 +267,425 @@
   }
 }
 
-/* -------- Educational Resources Page ------- */
+/* -------- Welcome Section ------- */
 @media screen and (max-width: 1200px) {
-  .blood-type-compatibility .desc,
-  .who-can-donate-blood .desc,
-  .benefits-of-donating-blood .desc,
-  .donation-process .desc,
-  .after-donating-blood .desc {
-    width: 90%;
+  .welcome-content {
+    padding-right: 0;
   }
-  .blood-type-compatibility div,
-  .who-can-donate-blood div,
-  .benefits-of-donating-blood div,
-  .donation-process .another-another-div,
-  .after-donating-blood div {
-    gap: 3rem;
+  .welcome-content h1 {
+    font-size: 3.5rem;
   }
-  .blood-type-compatibility p,
-  .who-can-donate-blood ul,
-  .benefits-of-donating-blood ul,
-  .donation-process p,
-  .after-donating-blood ul {
-    width: 50%;
+  .welcome-content h3 {
+    font-size: 2.4rem;
   }
-  .blood-type-compatibility img,
-  .who-can-donate-blood img,
-  .benefits-of-donating-blood img,
-  .donation-process img,
-  .after-donating-blood img {
-    width: 50%;
-  }
-  .donation-process h6 {
-    margin: 2rem;
+  .welcome-para {
+    font-size: 1.7rem;
   }
 }
 @media screen and (max-width: 1024px) {
-  .blood-type-compatibility h1,
-  .who-can-donate-blood h1,
-  .benefits-of-donating-blood h1,
-  .donation-process h1,
-  .after-donating-blood h1 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  .welcome-content h1 {
+    font-size: 3rem;
   }
-  .blood-type-compatibility .desc,
-  .who-can-donate-blood .desc,
-  .benefits-of-donating-blood .desc,
-  .donation-process .desc,
-  .after-donating-blood .desc {
-    font-size: 1rem;
-  }
-  .blood-type-compatibility div {
-    flex-direction: column-reverse;
-  }
-  .who-can-donate-blood div {
-    flex-direction: column;
-  }
-  .benefits-of-donating-blood div {
-    flex-direction: column-reverse;
-  }
-  .donation-process .another-another-div:nth-child(odd) {
-    flex-direction: column-reverse;
-  }
-  .donation-process .another-another-div:nth-child(even) {
-    flex-direction: column;
-  }
-  .after-donating-blood div {
-    flex-direction: column;
-  }
-  .blood-type-compatibility p,
-  .who-can-donate-blood ul,
-  .benefits-of-donating-blood ul,
-  .donation-process p,
-  .after-donating-blood ul {
-    width: 80%;
-    align-self: center;
-    font-size: 0.9rem;
-  }
-  .blood-type-compatibility img,
-  .who-can-donate-blood img,
-  .benefits-of-donating-blood img,
-  .donation-process img,
-  .after-donating-blood img {
-    width: 60%;
-  }
-  .donation-process h6 {
-    font-size: 115rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .blood-type-compatibility,
-  .who-can-donate-blood,
-  .benefits-of-donating-blood,
-  .donation-process,
-  .after-donating-blood {
-    padding: 2rem 0;
-  }
-  .blood-type-compatibility h1,
-  .who-can-donate-blood h1,
-  .benefits-of-donating-blood h1,
-  .donation-process h1,
-  .after-donating-blood h1 {
-    font-size: 1.6rem;
-  }
-  .blood-type-compatibility .desc,
-  .who-can-donate-blood .desc,
-  .benefits-of-donating-blood .desc,
-  .donation-process .desc,
-  .after-donating-blood .desc {
-    font-size: 0.9rem;
-  }
-  .blood-type-compatibility img,
-  .who-can-donate-blood img,
-  .benefits-of-donating-blood img,
-  .donation-process img,
-  .after-donating-blood img {
-    width: 80%;
-  }
-  .blood-type-compatibility p,
-  .who-can-donate-blood ul,
-  .benefits-of-donating-blood ul,
-  .donation-process p,
-  .after-donating-blood ul {
-    font-size: 0.8rem;
-  }
-  .donation-process h6 {
-    font-size: 1.1rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .blood-type-compatibility h1,
-  .who-can-donate-blood h1,
-  .benefits-of-donating-blood h1,
-  .donation-process h1,
-  .after-donating-blood h1 {
-    font-size: 1.4rem;
-  }
-  .blood-type-compatibility .desc,
-  .who-can-donate-blood .desc,
-  .benefits-of-donating-blood .desc,
-  .donation-process .desc,
-  .after-donating-blood .desc {
-    font-size: 0.8rem;
-    width: 95%;
-  }
-  .blood-type-compatibility img,
-  .who-can-donate-blood img,
-  .benefits-of-donating-blood img,
-  .donation-process img,
-  .after-donating-blood img {
-    width: 90%;
-  }
-  .blood-type-compatibility p,
-  .who-can-donate-blood ul,
-  .benefits-of-donating-blood ul,
-  .donation-process p,
-  .after-donating-blood ul {
-    font-size: 0.75rem;
-    width: 85%;
-  }
-  .donation-process h6 {
-    font-size: 1rem;
-  }
-}
-
-/* --------view-request-page-------- */
-
-@media screen and (max-width: 1200px) {
-  .view-request-cards {
-    width: 45%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .view-request-cards {
-    width: 80%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .view-request-container {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .view-request-cards {
-    width: 100%;
-    padding: 1rem 1rem 1rem 1rem;
-  }
-  .view-request-heading {
+  .welcome-content h3 {
     font-size: 2rem;
   }
-  .view-request-accept-btn {
-    font-size: 1rem;
+  .welcome-para {
+    font-size: 1.3rem;
   }
-  .view-request-share-btn {
-    font-size: 1rem;
+  .welcome-img img {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .welcome-section-main-container {
+    position: relative;
+    overflow: hidden;
+    padding: 0 3%;
+  }
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../src/assets/welcome2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+  }
+  .welcome-content {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+  .welcome-content h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 1px 5px var(--light-color);
+  }
+  .welcome-content h3 {
+    font-size: 2.8rem;
+    text-shadow: 3px 3px 0px var(--red-color);
+  }
+  .welcome-para {
+    font-size: 1.6rem;
+    text-shadow: 3px 3px 0px var(--red-color);
+  }
+  .welcome-img {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .welcome-section-main-container {
+    padding: 0 1%;
+  }
+  .welcome-content h1 {
+    font-size: 3.2rem;
+  }
+  .welcome-content h3 {
+    font-size: 2.5rem;
+  }
+  .welcome-para {
+    font-size: 1.3rem;
   }
 }
 
-/* -----------account-successfully-created------- */
+/* -------- About Section ------- */
 @media screen and (max-width: 1200px) {
-  .account-created-msg-container {
-    width: 60%;
-    font-size: 1.2rem;
+  .about-section-top-slogan {
+    padding: 2rem 4rem;
+    font-size: 1.3rem;
   }
-}
-@media screen and (max-width: 1020px) {
-  .account-created-msg-container {
+  .about-content {
+    width: 60%;
+  }
+  .about-content-para {
     font-size: 1rem;
+  }
+  .innerdiv {
+    padding: 1rem;
+  }
+  .about-info-box {
     padding: 1rem;
   }
 }
-@media screen and (max-width: 768px) {
-  .account-created-msg-container {
-    width: 80%;
-    font-size: 0.9rem;
-  }
-  .acc-cont-btn {
-    padding: 3% 5%;
-    font-size: 1rem;
-  }
-}
-
-/* -------- Profile Form Page ------- */
-@media screen and (max-width: 1200px) {
-  .profile-form {
-    width: 80%;
-  }
-  .profile-form-container {
-    width: 70%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .profile-form-heading {
-    font-size: 1.5rem;
-  }
-  .profile-form label {
-    font-size: 0.9rem;
-  }
-  .profile-form input {
-    font-size: 0.7rem;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-  }
-  .age {
-    font-size: 0.7rem;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-  }
-  .profile-form .gender {
-    margin: 0.5rem;
-  }
-  .bld-grp {
-    font-size: 0.7rem;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-  }
-  .profile-form-done-btn {
-    font-size: 1rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .profile-form-heading {
-    font-size: 1rem;
-  }
-  .profile-form-container {
-    width: 100%;
-  }
-  .profile-form-page-container {
-    padding: 0;
-  }
-}
-
-/* -------- Profile Page ------- */
-
-@media screen and (max-width: 1200px) {
-  .feedback-btn,
-  .myactivity-btn {
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .profile-page-heading {
-    font-size: 2rem;
-  }
-  .profile-container {
-    width: 80vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  .feedback-btn,
-  .myactivity-btn {
-    width: 30%;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-  .profile-img {
-    width: 120px;
-    height: 120px;
-    margin-top: 0.5rem;
-  }
-  .profile-container {
-    margin: 1rem;
-  }
-  .profile-details-page-container {
-    width: 100%;
-    padding: 0.5rem;
-  }
-  .edit-profile-btn,
-  .logout-btn {
-    margin: 1rem;
-    font-size: 0.9rem;
-    width: 50%;
-  }
-  .profile-details {
-    font-size: 0.8rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .profile-page-heading {
-    font-size: 1.5rem;
-  }
-  .feedback-btn,
-  .myactivity-btn {
-    width: 35%;
-    padding: 0.5rem 0rem 0.5rem 0;
-    font-size: 0.7rem;
-  }
-}
-/* --------my-activity Page ------- */
-@media screen and (max-width: 1024px) {
-  .achievements-container {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .achievements-heading {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-
-  .congratulation-msg-container {
-    font-size: 0.9rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .achievements-container {
-    margin: 1rem;
-  }
-
-  .achievements-heading {
-    font-size: 1.5rem;
-  }
-  .congratulation-msg-container {
-    padding: 1.2rem;
-  }
-}
-/* --------feedback Page ------- */
-@media screen and (max-width: 1200px) {
-  .feedback-main-container {
-    width: 60%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .feedback-main-container {
-    width: 70%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .feedback-main-container {
-    width: 80%;
-  }
-  .feedback-heading {
-    font-size: 1.8rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .feedback-main-container {
-    width: 90%;
-  }
-  .feedback-heading {
-    font-size: 1.3rem;
-  }
-  .feedback-form label {
-    font-size: 1rem;
-  }
-  .feedback-form input {
-    font-size: 0.7rem;
-  }
-  .feedback-msg-box {
-    padding: 0.5rem;
-    font-size: 0.7rem;
-  }
-  .feedback-done-btn,
-  .feedback-cancel-btn {
-    width: 40%;
-    font-size: 1rem;
-  }
-}
-
-/* ------add-request-page---------- */
-@media screen and (max-width: 1200px) {
-  .add-request-page-container {
-    background: var(--background);
-    align-items: center;
-  }
-  .add-request-form-container {
-    width: 70%;
-    padding: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .add-request-form-container label {
-    font-size: 1rem;
-  }
-
-  .request-btn,
-  .cancel-request-btn {
-    margin: 1.5rem 3rem;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .add-request-form-container {
-    width: 80%;
+@media screen and (max-width: 992px) {
+  .about-section-top-slogan {
+    font-size: 1.2rem;
     padding: 2rem;
   }
-  .add-request-form {
+  .about-content {
+    padding: 2rem 2.5rem;
+  }
+  .about-content-para {
+    font-size: 0.95rem;
+  }
+  .about-section-para-company-name {
+    font-size: 1.2rem;
+  }
+  .about-card-section-heading {
+    font-size: 2.6rem;
+  }
+  .innerdiv {
+    flex-basis: 32%;
+  }
+  .card-title {
+    font-size: 1.3rem;
+  }
+  .card-para {
+    font-size: 0.95rem;
+  }
+  .about-info-section-heading {
+    font-size: 2.6rem;
+  }
+  .about-info-box {
+    flex-basis: 42%;
+  }
+  .about-info-box h2 {
+    font-size: 1.3rem;
+  }
+  .about-info-box p {
+    font-size: 0.95rem;
+  }
+  .about-info-btn {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-section-top-slogan {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+    margin: 0 1rem;
+    transform: translateY(-40%);
+  }
+  .about-section {
+    background: linear-gradient(
+      to left,
+      rgb(255, 138, 146),
+      rgb(255, 175, 184)
+    );
+    justify-content: center;
+    padding: 5rem 0 3rem 0;
+  }
+  .about-content {
+    width: 80%;
+    box-shadow: 2px 2px 10px 0 var(--dark-color);
+  }
+  .about-card-section {
+    margin-top: 3rem;
+  }
+  .about-card-section-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .about-card-main-container {
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .innerdiv {
+    padding: 1.5rem;
+  }
+  .about-info-section {
+    margin-top: 3rem;
+  }
+  .about-info-section-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .about-info-main-container {
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .about-info-box {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-section-top-slogan {
+    font-size: 1rem;
+    padding: 1.2rem;
+    transform: translateY(-40%);
+  }
+  .about-content {
+    width: 90%;
+  }
+  .about-content-para {
+    font-size: 0.9rem;
+  }
+  .about-section-para-company-name {
+    font-size: 1rem;
+  }
+  .about-card-section-heading {
+    font-size: 2.3rem;
+  }
+  .about-card-main-container {
+    width: 90%;
+  }
+  .card-title {
+    font-size: 1.2rem;
+  }
+  .card-para {
+    font-size: 0.9rem;
+  }
+  .about-info-section-heading {
+    font-size: 2.3rem;
+  }
+  .about-info-main-container {
+    width: 90%;
+  }
+  .about-info-box h2 {
+    font-size: 1.2rem;
+  }
+  .about-info-box p {
+    font-size: 0.9rem;
+  }
+  .about-info-btn {
+    font-size: 1rem;
+    padding: 1rem 1.3rem;
+  }
+}
+
+/* -------- Testimonials Section ------- */
+@media screen and (max-width: 1200px) {
+  .Testimonials-card {
+    width: 240px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .carousel-item {
+    padding: 0 0.5rem;
+  }
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+    font-size: 1.7rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  .Testimonials-heading {
+    font-size: 2.6rem;
+  }
+  .sub-heading {
+    font-size: 0.95rem;
+    width: 70%;
+  }
+  .Testimonial-recp-name {
+    font-size: 0.95rem;
+  }
+  .Testimonial-recp-msg {
+    font-size: 0.95rem;
+  }
+    .if-empty p {
+    font-size: 1.2rem;
+    padding: 2rem 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Testimonials-heading {
+    font-size: 2.5rem;
+  }
+  .sub-heading {
+    width: 80%;
+  }
+  .carousel-control {
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Testimonials-heading {
+    font-size: 2.3rem;
+  }
+  .sub-heading {
+    font-size: 0.9rem;
+    width: 90%;
+  }
+  .Testimonials-main-container {
     padding: 0;
   }
-  .add-request-form-container input {
-    font-size: 0.6rem;
-    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  .carousel{
+    width: 100%;
   }
-  .add-request-form-container textarea {
-    font-size: 0.6rem;
-    padding: 0.2rem;
+  .carousel-control{
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    box-shadow: none;
   }
-  .add-request-form-container label {
+  .Testimonials-card {
+    width: 200px;
+
+  }
+  .Testimonial-recp-name{
     font-size: 0.9rem;
   }
-  .request-btn,
-  .cancel-request-btn {
+  .Testimonial-recp-msg{
+    font-size: 0.9rem;
+  }
+  .if-empty p {
     font-size: 1rem;
-    margin: 1.5rem 2rem;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 2rem 2.5rem;
   }
 }
-@media screen and (max-width: 480px) {
-  .add-request-form-container {
-    width: 90%;
-  }
-  .request-btn,
-  .cancel-request-btn {
-    font-size: 0.9rem;
-    margin: 1.2rem 1.8rem;
-    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
-  }
-}
-/* ---------register/login-page-----------  */
+
+/* -------- RegisterPage, LoginPage, ProfileFormPage, AddRequestPage, FeedbackPage, ContactPage ------- */
 @media screen and (max-width: 1200px) {
-  .register-page-form-container,
-  .login-page-form-container {
+  .form-page-container {
     width: 70%;
   }
-  .register-page-heading,
-  .login-page-heading {
-    font-size: 1.3rem;
+  .form-main-container {
+    width: 70%;
   }
 }
-@media screen and (max-width: 1024px) {
-  .register-page-form-container,
-  .login-page-form-container {
+@media screen and (max-width: 992px) {
+  .form-page-container {
     width: 80%;
   }
-  .register-page-container,
-  .login-page-container {
-    width: 70%;
+  .form-main-container {
+    width: 80%;
   }
-  .register-page-heading,
-  .login-page-heading {
-    font-size: 1rem;
+  .form-heading {
+    font-size: 1.4rem;
   }
-  .register-form label,
-  .login-form label {
-    font-size: 0.9rem;
-  }
-  .register-form input,
-  .login-form input {
-    font-size: 0.8rem;
-    margin: 0.6rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-  }
-  .register-btn,
-  .login-btn {
-    padding: 0.7rem 0.7rem 0.7rem 0.7rem;
-    font-size: 1.1rem;
+  .form-container input,
+  .form-container select,
+  .form-container textarea {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
   }
 }
 @media screen and (max-width: 768px) {
-  .register-page-form-container,
-  .login-page-form-container {
+  .form-page-container {
     width: 90%;
-    padding: 3rem 2rem;
   }
-}
-@media screen and (max-width: 480px) {
-  .register-page-container,
-  .login-page-container {
-    width: 80%;
-  }
-  .register-page-form-container,
-  .login-page-form-container {
+  .form-main-container {
     width: 100%;
+    padding: 1rem 2rem;
   }
-  .already-acc,
-  .no-acc {
-    font-size: 0.8rem;
-  }
-  .register-btn,
-  .login-btn {
-    padding: 0.6rem 0.6rem 0.6rem 0.6rem;
-    font-size: 1rem;
-  }
-  .forgot-password {
-    font-size: 0.6rem;
-  }
-}
-/* --------reset-password Page ------- */
-@media screen and (max-width: 1200px) {
-  .reset-password-page-container {
-    width: 45%;
-    padding: 6rem 4rem;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .reset-password-page-container {
-    width: 50%;
-    padding: 5rem 3rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .reset-password-page-container {
-    width: 70%;
-    padding: 4rem 3rem;
-  }
-  .reset-password-heading {
+  .form-heading {
     font-size: 1.3rem;
   }
+  .form-container p {
+    font-size: 0.8rem;
+  }
+  .form-container input,
+  .form-container select,
+  .form-container textarea {
+    font-size: 0.8rem;
+  }
+  #error-text {
+    font-size: 0.8rem;
+  }
+  .form-btn {
+    font-size: 1rem;
+  }
+  .reg-login-switch {
+    font-size: 0.8rem;
+  }
 }
 @media screen and (max-width: 480px) {
-  .reset-password-page-container {
-    width: 100%;
-    padding: 4rem 2rem;
+  .form-page-container {
+    margin: 2rem auto;
   }
-  .reset-password-heading {
-    font-size: 1.1rem;
-    letter-spacing: 2px;
+  .form-main-container {
+    padding: 1rem;
   }
-  .reset-password-form label {
+  .form-heading {
+    font-size: 1.2rem;
+  }
+  .form-container p {
+    font-size: 0.75rem;
+  }
+  .form-container input,
+  .form-container select,
+  .form-container textarea {
+    padding: 0.6rem;
+    margin: 0.6rem 0;
+    font-size: 0.7rem;
+  }
+  .show-password {
+    margin: -0.5rem 0 0 0.5rem;
+  }
+  #show-password-label {
+    font-size: 0.65rem;
+  }
+  #error-text {
+    font-size: 0.7rem;
+    margin: -0.1rem 0 0.5rem 0.5rem;
+  }
+  .form-btn {
     font-size: 0.9rem;
+    padding: 0.6rem;
   }
-  .reset-password-form input {
-    font-size: 0.8rem;
-    margin: 0.8rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-  }
-  .reset-password-btn {
-    padding: 0.8rem 0.8rem 0.8rem 0.8rem;
-    font-size: 1rem;
+  .reg-login-switch {
+    font-size: 0.7rem;
   }
 }

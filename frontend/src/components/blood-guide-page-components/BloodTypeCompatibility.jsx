@@ -8,11 +8,6 @@ export default function BloodTypeCompatibility() {
   }, []);
   return (
     <div className="blood-guide-section">
-      {/* <div className="blood-guide-navigation-sectio">
-        <div className="navigation-box">
-
-        </div>
-      </div> */}
       <h1 >Blood Type Compatibility</h1>
       <h3> Blood type compatibility refers to the ability of one individual's blood to be safely transfused into another individual without causing adverse reactions. Ensuring compatibility is essential to prevent adverse reactions and ensure successful outcomes.</h3>
       <div>

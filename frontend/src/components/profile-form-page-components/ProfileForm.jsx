@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import { useLocation } from "react-router-dom";
 
 export default function ProfileForm() {
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -66,14 +67,12 @@ export default function ProfileForm() {
             <form className="form-container" onSubmit={handleSubmit}>
                 <input type="text" name="fullname" value={fullname} onChange={(e) => setFullname(e.target.value)} placeholder="Full Name*" required />
                 <input type="number" name="age" value={age} onChange={(e) => setAge(e.target.value)} placeholder="Age*" required />
-
-                <select name="gender" onChange={(e) => setGender(e.target.value)} value={gender}>
+                <select name="gender" onChange={(e) => setGender(e.target.value)} value={gender} style={{ color: gender === "" ? "#757575" : "black" }} required>
                     <option value="" disabled>Select Your Gender*</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
-
-                <select name="bldGrp" onChange={(e) => setBldGrp(e.target.value)} value={bldGrp}>
+                <select name="bldGrp" onChange={(e) => setBldGrp(e.target.value)} value={bldGrp} style={{ color: bldGrp === "" ? "#757575" : "black" }} required>
                     <option value="" disabled>Select Your Blood Group*</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -84,10 +83,8 @@ export default function ProfileForm() {
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
                 </select>
-
-                <input type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Full address*" required />
-
-                <input type="text" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Contact number*" required />
+                <input type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Full Address*" required />
+                <input type="text" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Contact Number*" required />
                 <button type="submit" className="form-btn">DONE</button>
             </form>
         </div>

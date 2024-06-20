@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 import { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -58,7 +60,6 @@ const AuthProvider = ({ children }) => {
             return { success: false, errors: error.response.data };
         }
     };
-
 
     const loginUser = async (username, password) => {
         try {
@@ -208,17 +209,17 @@ const AuthProvider = ({ children }) => {
         }
     };
 
-    const createBldRequest = async (user, recipientName, recipientAge, bldDonationLocation, bldRequiredBeforeDate, bldGrp, contact, req) => {
+    const createBldRequest = async (user, recipientName, recipientAge, bldGrp, bldRequiredBeforeDate, bldDonationLocation, contact, req) => {
         try {
             let response;
             if (req) {
-                response = await axios.put(`${baseURL}/api/requests/request/${req.id}/`, { user, recipientName, recipientAge, bldDonationLocation, bldRequiredBeforeDate, bldGrp, contact, }, {
+                response = await axios.put(`${baseURL}/api/requests/request/${req.id}/`, { user, recipientName, recipientAge, bldGrp, bldRequiredBeforeDate, bldDonationLocation, contact }, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 });
             } else {
-                response = await axios.post(`${baseURL}/api/requests/request/`, { user, recipientName, recipientAge, bldDonationLocation, bldRequiredBeforeDate, bldGrp, contact, }, {
+                response = await axios.post(`${baseURL}/api/requests/request/`, { user, recipientName, recipientAge, bldGrp, bldRequiredBeforeDate, bldDonationLocation, contact }, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -241,7 +242,6 @@ const AuthProvider = ({ children }) => {
             console.error("Error sending data:", error);
             swal.fire({
                 title: "An Error Occurred while Creating Blood Request",
-                text: "Internal Server Error",
                 icon: "error",
                 toast: true,
                 timer: 2000,
@@ -287,13 +287,14 @@ const AuthProvider = ({ children }) => {
 
     const contact = async (user, fullname, email, msg) => {
         try {
-            const response = await axios.post(`${baseURL}/contact/`, { user, fullname, email, msg }, {
+            const response = await axios.post(`${baseURL}/contact/contactmail/`, { user, fullname, email, msg }, {
                 headers: {
                     "Content-Type": "application/json",
+                    'Authorization': `Bearer ${authTokens.access}`
                 }
             });
-            if (response.status === 201) {
-                navigate('/')
+            if (response.status === 200) {
+                navigate('/');
                 swal.fire({
                     title: "Message Sent Successfully",
                     icon: "success",

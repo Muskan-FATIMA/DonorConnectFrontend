@@ -18,6 +18,7 @@ export default function Footer() {
     const [email, setEmail] = useState('');
 
     const year = new Date().getFullYear();
+
     const token = localStorage.getItem("authTokens")
 
     const { authTokens } = useContext(AuthContext) || {};
@@ -78,12 +79,8 @@ export default function Footer() {
                                 <Link to="/view-request">View Request</Link>
                                 <Link to="/my-request">My Request</Link>
                                 <Link to="/contact">Contact Us</Link>
-
                             </>
                         }
-
-
-
                     </div>
                 </div>
                 <div className="footer-division">
@@ -96,15 +93,14 @@ export default function Footer() {
                     <div className="social-links-container ">
                         <h2>Social Links</h2>
                         <Link to="mailto:donorconnect001@gmail.com" target="_blank"><EmailIcon /></Link>
-                        <Link to="" target="_blank"><CallIcon /></Link>
-
-                        <Link to="" target="_blank"><InstagramIcon /></Link>
+                        <a href="tel:+917322071944" target="_blank" rel="noopener noreferrer"><CallIcon /></a>
+                        <Link to="https://www.instagram.com/muskan314/" target="_blank"><InstagramIcon /></Link>
                         <Link to="https://www.linkedin.com/in/nsgulnar/" target="_blank"><LinkedInIcon /></Link>
                     </div>
                 </div>
             </div>
             <hr />
-            <p className="copyright"> Copyright &copy; {year} | Donor Connect | Developed with ❤️ by Gulnar and Muskan.</p>
+            <p className="copyright"> Copyright &copy; {year} | Donor Connect | Developed with ❤ by Gulnar and Muskan</p>
         </footer >
     )
 }

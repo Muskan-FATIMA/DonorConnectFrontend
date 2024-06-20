@@ -3,9 +3,11 @@ import { useState, useContext, useEffect } from "react";
 import { AuthContext } from '../../context/AuthContext';
 
 export default function RegPageForm() {
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -31,28 +33,20 @@ export default function RegPageForm() {
             <form className="form-container" onSubmit={handleSubmit}>
                 <h1 className="form-heading">CREATE NEW ACCOUNT</h1>
                 <input type="text" value={username} placeholder="Username*" onChange={e => setUsername(e.target.value)} name='username' required />
-                {errors.username && <p className="error-text">{errors.username}</p>}
-
+                {errors.username && <p id="error-text">{errors.username}</p>}
                 <input type="email" placeholder="Email*" value={email} onChange={e => setEmail(e.target.value)} name='email' required />
-                {errors.email && <p className="error-text">{errors.email}</p>}
-
-
+                {errors.email && <p id="error-text">{errors.email}</p>}
                 <input type={showPassword ? "text" : "password"} value={password} placeholder="Password*" onChange={e => setPassword(e.target.value)} name='password' required />
-
                 <input type={showPassword ? "text" : "password"} value={password2} placeholder="Re-enter Password*" onChange={e => setPassword2(e.target.value)} name='password2' required />
-                {errors.password && <p className="error-text">{errors.password}</p>}
+                {errors.password && <p id="error-text">{errors.password}</p>}
                 <div className="show-password">
-                    <input
-                        type="checkbox"
-                        id="show-password-input"
-                        checked={showPassword}
-                        onChange={() => setShowPassword(!showPassword)}
-                    />
+                    <input type="checkbox" id="show-password-input" checked={showPassword} onChange={() => setShowPassword(!showPassword)} />
                     <label id="show-password-label">Show Passwords</label>
                 </div>
                 <button type="submit" className="form-btn">Register</button>
             </form>
+
             <p className="reg-login-switch">Already have an account? <Link to="/login">LogIn</Link></p>
-        </div>
-    );
+
+        </div>);
 }
