@@ -94,13 +94,13 @@ export default function Footer() {
                         <h2>Social Links</h2>
                         <Link to="mailto:donorconnect001@gmail.com" target="_blank"><EmailIcon /></Link>
                         <a href="tel:+917322071944" target="_blank" rel="noopener noreferrer"><CallIcon /></a>
-                        <Link to="https://www.instagram.com/muskan314/" target="_blank"><InstagramIcon /></Link>
+                        <Link to="https://www.instagram.com/_muskan314_/" target="_blank"><InstagramIcon /></Link>
                         <Link to="https://www.linkedin.com/in/nsgulnar/" target="_blank"><LinkedInIcon /></Link>
                     </div>
                 </div>
             </div>
             <hr />
-            <p className="copyright"> Copyright &copy; {year} | Donor Connect | Developed with ❤ by Gulnar and Muskan</p>
+            <p className="copyright">Developed with ❤️ by <span style={{ fontWeight: "600" }}>Gulnar</span> and <span style={{ fontWeight: "600" }}>Muskan</span> <br /> Copyright &copy; {year} | Donor Connect</p>
         </footer >
     )
 }

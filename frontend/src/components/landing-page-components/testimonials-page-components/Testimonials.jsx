@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import swal from 'sweetalert2'
 
 export default function Testimonials() {
 
@@ -25,16 +24,6 @@ export default function Testimonials() {
                 }
             } catch (error) {
                 console.error('Error fetching requests:', error);
-                swal.fire({
-                    title: 'An Error Occurred while Fetching Feedbacks',
-                    text: error.message || 'Internal Server Error',
-                    icon: 'error',
-                    toast: true,
-                    timer: 2000,
-                    position: 'top-right',
-                    timerProgressBar: true,
-                    showConfirmButton: false,
-                });
             }
         };
 

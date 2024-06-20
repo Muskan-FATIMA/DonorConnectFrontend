@@ -54,15 +54,6 @@ export default function MyRequest() {
                 }
             } catch (error) {
                 console.error('Error fetching requests:', error);
-                swal.fire({
-                    title: 'An Error Occurred while Fetching Requests',
-                    icon: 'error',
-                    toast: true,
-                    timer: 2000,
-                    position: 'top-right',
-                    timerProgressBar: true,
-                    showConfirmButton: false,
-                });
             }
         };
 

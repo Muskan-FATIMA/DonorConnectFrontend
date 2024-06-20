@@ -7,7 +7,6 @@ import { useContext, useEffect } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import { jwtDecode } from 'jwt-decode';
 import axios from "axios";
-import swal from "sweetalert2"
 
 export default function NavBar() {
 
@@ -55,15 +54,7 @@ export default function NavBar() {
                     setLength(len);
                 }
             } catch (error) {
-                swal.fire({
-                    title: 'An Error Occurred while Fetching View Request Number',
-                    icon: 'error',
-                    toast: true,
-                    timer: 2000,
-                    position: 'top-right',
-                    timerProgressBar: true,
-                    showConfirmButton: false,
-                });
+                console.error('Error fetching view request number:', error);
             }
         }
         if (id) {

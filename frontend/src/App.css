@@ -299,7 +299,7 @@ hr {
 }
 .copyright {
   padding: 0 1.5rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 
@@ -317,17 +317,18 @@ hr {
   width: 50%;
   padding-right: 3%;
 }
+.welcome-content h1 {
+  color: var(--red-color);
+  text-shadow: 2px 2px 10px var(--light-color);
+  font-size: 4.2rem;
+  line-height: 1;
+  font-weight: bold;
+}
 .welcome-content h3 {
   color: var(--white);
   text-shadow: 2px 2px 5px var(--red-color);
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-}
-.welcome-content h1 {
-  color: var(--red-color);
-  text-shadow: 2px 2px 10px var(--light-color);
-  font-size: 4.2rem;
-  font-weight: bold;
 }
 .welcome-para {
   color: var(--white);
@@ -337,16 +338,19 @@ hr {
   line-height: 1.6;
   margin-top: 0.5rem;
 }
-.welcome-img {
+.welcome-large-screen-img {
   width: 50%;
   display: flex;
   justify-content: flex-end;
   align-items: end;
 }
-.welcome-img img {
+.welcome-large-screen-img img {
   width: 65%;
   height: 65%;
   animation: slideLeft 1s ease forwards;
+}
+.welcome-small-screen-img{
+  display: none;
 }
 
 /* --------- AboutSection ------ */
@@ -547,13 +551,12 @@ hr {
 }
 .webguide-inner-container h1 {
   color: var(--red-color);
-  font-size: 3rem;
+  font-size: 2.8rem;
   letter-spacing: 1.3px;
   text-align: center;
   text-shadow: 2px 2px 5px rgba(63, 62, 62, 0.5);
-  margin: 3rem 1rem;
+  margin: 3rem 1rem 0 1rem;
 }
-
 .webguide-steps {
   width: 100%;
   display: flex;
@@ -561,7 +564,7 @@ hr {
   justify-content: center;
   align-items: center;
   text-align: justify;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .webguide-steps-container{
   display: flex;
@@ -571,6 +574,9 @@ hr {
 .webguide-inner-img {
   width: 50%;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: c;
 }
 .webguide-inner-img img {
   width: 80%;
@@ -585,8 +591,9 @@ hr {
 .webguide-steps-inner-content
 h4 {
   color: var(--red-color);
-  margin: 1rem 0 0.2rem 0;
-  font-size: 1.4rem;
+  margin: 1rem 0 0.1rem 0;
+  font-size: 1.3rem;
+  font-weight: 650;
 }
 .webguide-steps-inner-content p {
   color: var(--text-color);
@@ -701,6 +708,20 @@ h4 {
 }
 .dot.active {
   background-color: #717171;
+}
+.if-empty{
+  margin-bottom: 2rem ;
+  padding: 3rem;
+  color: var(--red-color);
+} 
+.if-empty p{
+  box-shadow: 2px 2px 2px 5px rgba(63, 6, 6, 0.1); 
+  padding: 2rem 4rem;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  width: fit-content;
+  margin: auto;
 }
 
 /* -------- Blood-Guide-Page ------- */

@@ -105,15 +105,7 @@ const AuthProvider = ({ children }) => {
                 }
             }
         } catch (error) {
-            swal.fire({
-                title: 'An Error Occurred while Checking Profile',
-                icon: 'error',
-                toast: true,
-                timer: 2000,
-                position: 'top-right',
-                timerProgressBar: true,
-                showConfirmButton: false,
-            });
+            console.error("error checking profile:", error);
         }
     };
 
@@ -185,7 +177,7 @@ const AuthProvider = ({ children }) => {
                 });
             }
             if (response.status === 201 || response.status === 200) {
-                navigate('/')
+                navigate('/my-profile')
                 swal.fire({
                     title: 'Profile Saved Successfully',
                     icon: 'success',

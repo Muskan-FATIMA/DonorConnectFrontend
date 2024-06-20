@@ -1,6 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import { useEffect } from 'react';
-import guideImg1 from "../../assets/services-main.jpg"
+import guideImg1 from "../../assets/services-main.png"
 import { Link } from 'react-router-dom'
 // import guideImg2 from "../../assets/homepage2.png"
 // import guideImg3 from "../../assets/viewreq.png"
@@ -21,15 +22,15 @@ function OurServices() {
                 </div>
                 <div className="webguide-inner-container">
                     <div className="webguide-steps">
-                        <h1>How to Get Started</h1>
+                        <h1>Getting Started</h1>
                         <div className="webguide-steps-container">
                             <div className="webguide-steps-inner-content">
-                                <h4>Register</h4>
-                                <p><Link to=""> Sign up</Link> on Donor Connect with your basic information.  </p>
+                                <h4>Create An Account</h4>
+                                <p>Begin your journey on Donor Connect by <Link to="https://donorconnect.netlify.app/register">Registering</Link> with your basic information.  </p>
                                 <h4>Login</h4>
-                                <p><Link to="">Login</Link> to your account with your credentials.</p>
-                                <h4>Complete Your Profile</h4>
-                                <p>Fill out the <Link>Profile form</Link> with necessary details.
+                                <p>Use your credentials to <Link to="https://donorconnect.netlify.app/login">Login</Link> into your account.</p>
+                                <h4>Update Your Profile</h4>
+                                <p>Fill out the <Link to="https://donorconnect.netlify.app/profile-form">Profile Form</Link> with all the necessary details to finish setting up your account. You can also <Link to="https://donorconnect.netlify.app/my-profile">update</Link> your profile at any time.
                                 </p>
                             </div>
                             <div className="webguide-inner-img">
@@ -44,17 +45,13 @@ function OurServices() {
                                 <img src={guideImg1} alt="" />
                             </div>
                             <div className="webguide-steps-inner-content">
-                                <p>After logging in and completing your profile, you can start using the platform in the following ways:</p>
-                                <h4>Add a Blood Request</h4>
-                                <p>  If you or someone you know needs blood:</p>
-                                <p>
-                                    <li> Navigate to the <Link to="">Add Request</Link> section.</li>
-                                    <li>Fill out the request form with the necessary details.</li>
-                                    <li>You can edit or delete your request in the <Link to="">My Request</Link> section.</li
-                                    >
-                                    <li>If someone accepts your request, a mail will be sent to you by the Donor Connect Team providing you the full details of donor.</li>
-                                    <li>You can contact the donor for the further donation process.</li>
+                                <h4>Add a Request</h4>
+                                <p>If you or someone you know needs blood, then navigate to the <Link to="https://donorconnect.netlify.app/add-request">Add Request</Link> section, and fill out the request form with the necessary details.
                                 </p>
+                                <h4>Update the Request</h4>
+                                <p>You can edit or delete your request anytime in the <Link to="https://donorconnect.netlify.app/my-request">My Request</Link> section.</p>
+                                <h4>Receive Mail Notification</h4>
+                                <p>When someone accepts your request, you will receive an email from the Donor Connect Team containing the full details of the donor. You can use this information to contact the donor and arrange the donation.</p>
                             </div>
                         </div>
                     </div>
@@ -62,12 +59,10 @@ function OurServices() {
                         <h1>Accepting Blood Request</h1>
                         <div className="webguide-steps-container">
                             <div className="webguide-steps-inner-content">
-                                <p>If you want to donate blood:</p>
-                                <p> <li>Browse through the <Link to="">View Request</Link> section.</li>
-                                    <li>Find a request that matches your blood type.</li>
-                                    <li>If you accept someone's request, a mail will be sent to you by the Donor Connect Team providing you the full details of recipient.</li>
-                                    <li>You can contact the recipient for the further donation process.</li>
-                                </p>
+                                <h4>Accept a Request</h4>
+                                <p>If you wish to donate blood, go to the <Link to="https://donorconnect.netlify.app/view-request">View Request</Link> section, find a request that matches your blood type and click the Accept button.</p>
+                                <h4>Receive Mail Notification</h4>
+                                <p>Upon accepting a request, you will receive an email from the Donor Connect Team with the complete details of the recipient. You can use this information to contact the recipient and proceed with the donation process.</p>
                             </div>
                             <div className="webguide-inner-img">
                                 <img src={guideImg1} alt="" />
@@ -81,8 +76,10 @@ function OurServices() {
                                 <img src={guideImg1} alt="" />
                             </div>
                             <div className="webguide-steps-inner-content">
-                                <p>After successful completion of the blood donation process,  you can send your valuable <Link>Feedback</Link> regarding our website.</p>
-
+                                <h4>Provide Your Feedback</h4>
+                                <p>After successful completing the blood donation process, we encourage the recipient to share their valuable <Link to="https://donorconnect.netlify.app/feedback">feedback</Link> on how our website has contributed to saving lives.</p>
+                                <h4>Token of Thanks</h4>
+                                <p>Once the feedback form is submitted, the donor will receive an email from the Donor Connect Team, including a Certificate of Appreciation for their generous contribution.</p>
                             </div>
                         </div>
                     </div>

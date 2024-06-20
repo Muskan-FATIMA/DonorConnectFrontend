@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 import { jwtDecode } from 'jwt-decode';
-import swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 export default function MyProfile() {
@@ -54,15 +53,6 @@ export default function MyProfile() {
                 }
             } catch (error) {
                 console.error('Error fetching profile:', error);
-                swal.fire({
-                    title: 'An Error Occurred while Fetching Profile',
-                    icon: 'error',
-                    toast: true,
-                    timer: 2000,
-                    position: 'top-right',
-                    timerProgressBar: true,
-                    showConfirmButton: false,
-                });
             }
         };
 
@@ -70,7 +60,9 @@ export default function MyProfile() {
     }, [id]);
 
     if (!profile) {
-        return <div>Request not found or invalid request.</div>;
+        return <div className="if-empty">
+            <p>Request not found!</p>
+        </div>;
     }
 
     return (

@@ -47,15 +47,7 @@ export default function ViewRequest() {
                     setRequestData(requests);
                 }
             } catch (error) {
-                swal.fire({
-                    title: 'An Error Occurred while Fetching Requests',
-                    icon: 'error',
-                    toast: true,
-                    timer: 2000,
-                    position: 'top-right',
-                    timerProgressBar: true,
-                    showConfirmButton: false,
-                });
+                console.error('Error fetching requests:', error);
             }
         };
         if (id) {
@@ -75,7 +67,7 @@ export default function ViewRequest() {
             });
             if (response.status === 200) {
                 swal.fire({
-                    title: `Request Accepted Successfully, Please check your email for recipient's full details`,
+                    title: 'Request Accepted Successfully',
                     icon: 'success',
                     toast: true,
                     timer: 2000,
