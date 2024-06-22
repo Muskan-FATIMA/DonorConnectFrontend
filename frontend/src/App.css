@@ -450,7 +450,7 @@ hr {
   color: #545252e8;
   margin: 0 0.5rem;
 }
-/* Our Services and Blood Guide */
+/* Our Services and Blood Guide cards*/
 .about-info-section {
   width: 100%;
   margin-top: 4rem;
@@ -513,6 +513,7 @@ hr {
   width: 100%;
   margin-bottom: 4rem;
 }
+
 .services-box {
   width: 100%;
   height: 80vh;
@@ -525,6 +526,7 @@ hr {
   align-items: center;
   padding: 2rem 6rem;
 }
+
 .services-content-box {
   width: 50%;
   background-color: #fffaf5;
@@ -537,10 +539,12 @@ hr {
   line-height: 1.7;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.42);
 }
+
 .services-content-box h1 {
   color: var(--red-color);
   margin-bottom: 0.5rem;
 }
+
 .webguide-inner-container {
   width: 100%;
   display: flex;
@@ -549,6 +553,7 @@ hr {
   align-items: center;
   margin-top: 3rem;
 }
+
 .webguide-inner-container h1 {
   color: var(--red-color);
   font-size: 2.8rem;
@@ -557,6 +562,7 @@ hr {
   text-shadow: 2px 2px 5px rgba(63, 62, 62, 0.5);
   margin: 3rem 1rem 0 1rem;
 }
+
 .webguide-steps {
   width: 100%;
   display: flex;
@@ -566,40 +572,51 @@ hr {
   text-align: justify;
   margin-bottom: 1rem;
 }
+
 .webguide-steps-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
-.webguide-inner-img {
+
+.webguide-inner-video {
   width: 50%;
   padding: 2rem;
   display: flex;
   justify-content: center;
-  align-items: c;
+  align-items: center;
 }
-.webguide-inner-img img {
+
+.webguide-inner-video video {
   width: 80%;
   height: 80%;
-  box-shadow: 5px 5px 3px #ffdcdc66;
+  box-shadow: 3px 3px 3px 3px rgba(63, 6, 6, 0.1);
+  border-radius: 8px;
 }
+
 .webguide-steps-inner-content {
   width: 50%;
   padding: 3rem 8rem;
   text-align: justify;
 }
+
 .webguide-steps-inner-content h4 {
   color: var(--red-color);
   margin: 1rem 0 0.1rem 0;
   font-size: 1.3rem;
   font-weight: 650;
 }
+
 .webguide-steps-inner-content p {
   color: var(--text-color);
   font-size: 1.05rem;
   line-height: 1.6;
   font-weight: 450;
   text-align: justify;
+}
+.webguide-steps-inner-content p a{
+  color:blueviolet;
 }
 
 /* ---------- Testimonials Section ------ */
@@ -728,26 +745,23 @@ hr {
   text-align: center;
   padding: 2rem 2rem 4rem 2rem;
 }
-.blood-guide-navigation-sectio {
-  width: 100%;
-  height: 80vh;
-  background-color: #218838;
-  margin: auto;
-}
+
 .blood-guide-section h1 {
   color: var(--red-color);
   font-size: 2rem;
   margin-bottom: 2rem;
   text-shadow: 2px 2px 5px rgba(105, 93, 93, 0.5);
 }
+
 .blood-guide-section h3 {
   width: 70%;
-  margin: auto;
+  margin:auto;
   font-size: 1.05rem;
   font-weight: 450;
   line-height: 1.5;
   color: var(--red-color);
 }
+
 .blood-guide-section div {
   margin-top: 2rem;
   display: flex;
@@ -755,24 +769,41 @@ hr {
   align-items: center;
   gap: 6rem;
 }
+
 .blood-guide-section p,
 ul {
   width: 40%;
   text-align: justify;
-  line-height: 1.5;
-  color: #202020;
+  line-height: 1.7;
+  color: var(--text-color);
+  font-size: 1.05rem;
+  font-weight: 450;
 }
+
+.blood-guide-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  font-size: 1rem; 
+
+}
+
+.blood-guide-section li {
+  margin-bottom: 0.5rem;
+}
+
 .blood-guide-section img {
   width: 35%;
-  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.892);
   border-radius: 10px;
+  box-shadow: 5px 5px 3px #ffdcdc66;
 }
-.blood-guide-section h6 {
+
+.blood-guide-section h5 {
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--red-color);
   margin: 3rem 0 1rem 0;
 }
+
 #blood-guide-main-container {
   margin-top: 0;
   display: flex;
@@ -782,6 +813,7 @@ ul {
   margin-left: auto;
   gap: 0;
 }
+
 #blood-guide-container {
   margin-top: 0;
   display: flex;
@@ -790,6 +822,7 @@ ul {
   align-items: center;
   gap: 0;
 }
+
 #blood-guide-content {
   margin-top: 0;
   display: flex;

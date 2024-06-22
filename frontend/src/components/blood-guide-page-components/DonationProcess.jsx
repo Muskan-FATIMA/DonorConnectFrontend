@@ -11,7 +11,7 @@ export default function DonationProcess() {
             <h3>The blood donation process from the time you arrive until the time you leave takes about an hour. The donation itself is only about 8-10 minutes on average. The general donation process is outlined below.</h3>
             <div id="blood-guide-main-container">
                 <div id="blood-guide-container">
-                    <h6>Donor Registration Phase</h6>
+                    <h5>Donor Registration Phase</h5>
                     <div id="blood-guide-content">
                         <img src={registration} />
                         <p>
@@ -22,7 +22,7 @@ export default function DonationProcess() {
                     </div>
                 </div>
                 <div id="blood-guide-container">
-                    <h6>Health Screening Phase</h6>
+                    <h5>Health Screening Phase</h5>
                     <div id="blood-guide-content">
                         <p>
                             After registration, you'll undergo a health screening to ensure that you meet the eligibility criteria for blood donation. You'll be asked questions about your medical history, recent travel, and lifestyle factors that could affect the safety of your donation. This information helps identify any potential risk factors for transmitting infections through blood donation.
@@ -32,7 +32,7 @@ export default function DonationProcess() {
                     </div>
                 </div>
                 <div id="blood-guide-container">
-                    <h6>Blood Donation Phase</h6>
+                    <h5>Blood Donation Phase</h5>
                     <div id="blood-guide-content">
                         <img src={donation} />
                         <p>
@@ -44,7 +44,7 @@ export default function DonationProcess() {
                     </div>
                 </div>
                 <div id="blood-guide-container">
-                    <h6>Refreshment and recovery</h6>
+                    <h5>Refreshment and recovery</h5>
                     <div id="blood-guide-content">
                         <p>
                             After donating blood, you'll be guided to a designated area where you can rest and recover.

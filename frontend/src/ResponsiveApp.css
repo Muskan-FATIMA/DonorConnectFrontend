@@ -962,3 +962,259 @@
   font-size: 1.7rem;
 }
 } 
+
+/* ---------our services & web guide section------- */
+@media (max-width: 1200px) {
+  .services-box {
+    background-image: url(assets/services-bg.png);
+    justify-content: center;
+    padding: 2rem 4rem;
+  }
+
+  .services-content-box {
+    width: 60%;
+  }
+
+  .webguide-steps-inner-content {
+    padding: 3rem 4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .services-box {
+    padding: 2rem 2rem;
+    height: 70vh;
+  }
+
+  .services-content-box {
+    width: 70%;
+  }
+
+  .webguide-inner-container h1 {
+    font-size: 2.4rem;
+  }
+
+  .webguide-steps-inner-content {
+    padding: 3rem 2rem;
+  }
+
+  .webguide-inner-video video {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .services-content-box {
+    width: 90%;
+  }
+
+  .webguide-inner-container h1 {
+    font-size: 2rem;
+  }
+
+  .webguide-steps-container {
+    flex-direction: column;
+  }
+
+  .webguide-inner-video {
+    width: 90%;
+    padding: 1rem;
+    order: -1;
+  }
+
+  .webguide-steps-inner-content {
+    width: 90%;
+    padding:1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-content-box {
+    padding: 2rem;
+    font-size: 0.95rem;
+  }
+  .services-content-box h1{
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .webguide-inner-container{
+    margin-top: 1.5rem;
+  }
+  .webguide-inner-container h1 {
+    font-size: 1.6rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+  }
+
+  .webguide-steps-inner-content{
+    padding: 0.5rem;
+  }
+  .webguide-inner-video{
+    padding: 0.5rem;
+  }
+  .webguide-steps-inner-content h4 {
+    font-size: 1rem;
+    text-align:left;
+  }
+
+  .webguide-steps-inner-content p {
+    font-size: 0.9rem;
+  }
+
+  .webguide-inner-video video {
+    width: 100%;
+    height: 100%;
+    order: -1;
+  }
+}
+
+
+/* --------Blood-Guide-page-------- */
+
+@media (max-width: 1200px) {
+  .blood-guide-section {
+    padding: 2rem ;
+  }
+  .blood-guide-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .blood-guide-section h3 {
+    width: 80%;
+    font-size: 1rem;
+  }
+ 
+  .blood-guide-section div {
+    gap: 4rem;
+  }
+
+  .blood-guide-section p,
+  ul {
+    width: 50%;
+    font-size: 0.95rem; 
+  }
+
+  .blood-guide-section img {
+    width: 40%;
+  }
+
+  .blood-guide-section li {
+    font-size: 0.95rem; 
+  }
+}
+
+@media (max-width: 992px) {
+  .blood-guide-section h1 {
+    font-size: 1.6rem;
+  }
+
+  .blood-guide-section h3 {
+    width: 90%;
+    font-size: 0.95rem;
+  }
+
+  .blood-guide-section div {
+    flex-direction: column;
+    gap: 2rem;
+    width:100%;
+  }
+
+  .blood-guide-section p,
+  ul {
+    width: 80%;
+    font-size: 0.9rem; 
+  }
+
+  .blood-guide-section img {
+    width: 70%;
+    order: -1;
+  }
+
+  .blood-guide-section li {
+    font-size: 0.9rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .blood-guide-section {
+    padding: 1rem 1rem 2rem 1rem;
+  }
+
+  .blood-guide-section h1 {
+    font-size: 1.4rem;
+  }
+
+  .blood-guide-section h3 {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .blood-guide-section div {
+    gap: 1rem;
+  }
+
+
+  .blood-guide-section p,
+  ul {
+    width: 90%;
+    font-size: 0.85rem; 
+  }
+
+  .blood-guide-section img {
+    width: 75%;
+  }
+
+
+  .blood-guide-section h6 {
+    font-size: 1.2rem;
+  }
+
+  .blood-guide-section li {
+    font-size: 0.85rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .blood-guide-section{
+    padding: 1rem;
+  }
+  .blood-guide-section h1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .blood-guide-section h3 {
+    font-size: 0.95rem;
+  }
+
+  .blood-guide-section p,
+  ul {
+    width: 100%;
+    font-size: 0.9rem; 
+  }
+
+  .blood-guide-section img {
+    width: 95%;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .blood-guide-section h6 {
+    font-size: 1rem;
+  }
+
+  .blood-guide-section li {
+    font-size: 0.9rem; 
+  }
+}
