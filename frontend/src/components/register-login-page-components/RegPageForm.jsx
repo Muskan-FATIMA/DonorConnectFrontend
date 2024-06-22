@@ -32,9 +32,9 @@ export default function RegPageForm() {
         <div className="form-main-container">
             <form className="form-container" onSubmit={handleSubmit}>
                 <h1 className="form-heading">CREATE NEW ACCOUNT</h1>
-                <input type="text" value={username} placeholder="Username*" onChange={e => setUsername(e.target.value)} name='username' required />
+                <input type="text" value={username} placeholder="Username*" onChange={e => setUsername(e.target.value)} name='username' required autoComplete="off" />
                 {errors.username && <p id="error-text">{errors.username}</p>}
-                <input type="email" placeholder="Email*" value={email} onChange={e => setEmail(e.target.value)} name='email' required />
+                <input type="email" placeholder="Email*" value={email} onChange={e => setEmail(e.target.value)} name='email' required autoComplete="off" />
                 {errors.email && <p id="error-text">{errors.email}</p>}
                 <input type={showPassword ? "text" : "password"} value={password} placeholder="Password*" onChange={e => setPassword(e.target.value)} name='password' required />
                 <input type={showPassword ? "text" : "password"} value={password2} placeholder="Re-enter Password*" onChange={e => setPassword2(e.target.value)} name='password2' required />

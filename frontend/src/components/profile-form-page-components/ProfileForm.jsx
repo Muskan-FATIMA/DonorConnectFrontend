@@ -65,8 +65,8 @@ export default function ProfileForm() {
         <div className="form-main-container">
             <h1 className="form-heading">PROFILE DETAILS</h1>
             <form className="form-container" onSubmit={handleSubmit}>
-                <input type="text" name="fullname" value={fullname} onChange={(e) => setFullname(e.target.value)} placeholder="Full Name*" required />
-                <input type="number" name="age" value={age} onChange={(e) => setAge(e.target.value)} placeholder="Age*" required />
+                <input type="text" name="fullname" value={fullname} onChange={(e) => setFullname(e.target.value)} placeholder="Full Name*" required autoComplete="off" />
+                <input type="number" name="age" value={age} onChange={(e) => setAge(e.target.value)} placeholder="Age*" required autoComplete="off" />
                 <select name="gender" onChange={(e) => setGender(e.target.value)} value={gender} style={{ color: gender === "" ? "#757575" : "black" }} required>
                     <option value="" disabled>Select Your Gender*</option>
                     <option value="Male">Male</option>
@@ -83,8 +83,8 @@ export default function ProfileForm() {
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
                 </select>
-                <input type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Full Address*" required />
-                <input type="text" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Contact Number*" required />
+                <input type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Full Address*" required autoComplete="off" />
+                <input type="text" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Contact Number*" required autoComplete="off" />
                 <button type="submit" className="form-btn">DONE</button>
             </form>
         </div>

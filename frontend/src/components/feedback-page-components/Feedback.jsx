@@ -32,9 +32,9 @@ export default function Feedback() {
                 <div className="form-container">
                     <p id="form-subheading">Let us know how Donor Connect helped you!</p>
                     <form className="form-container" onSubmit={handleSubmit} >
-                        <input type="text" name="recipient" value={recipient} onChange={(e) => setRecipient(e.target.value)} placeholder="Recipient's full name*" />
-                        <input type="text" name="donor" value={donor} onChange={(e) => setDonor(e.target.value)} placeholder="Donor's full name" />
-                        <textarea className="feedback-msg-box" type="text" name="thanksmsg" value={thanksmsg} onChange={(e) => setThanksmsg(e.target.value)} cols={20} rows={10} placeholder="Your Feedback*" />
+                        <input type="text" name="recipient" value={recipient} onChange={(e) => setRecipient(e.target.value)} placeholder="Recipient's full name*" required autoComplete="off" />
+                        <input type="text" name="donor" value={donor} onChange={(e) => setDonor(e.target.value)} placeholder="Donor's full name" required autoComplete="off" />
+                        <textarea className="feedback-msg-box" type="text" name="thanksmsg" value={thanksmsg} onChange={(e) => setThanksmsg(e.target.value)} cols={20} rows={10} placeholder="Your Feedback*" required autoComplete="off" />
                         {isLoading && <div style={{ textAlign: "center", color: "black" }}>Sending your feedback, please wait...</div>}
                         <button type="submit" className="form-btn">Submit</button>
                     </form>

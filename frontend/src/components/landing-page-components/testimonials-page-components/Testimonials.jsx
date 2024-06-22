@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
+import Footer from "../../footer/Footer"
 
 export default function Testimonials() {
 
@@ -72,45 +73,47 @@ export default function Testimonials() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
     return (
-
-        <div className="Testimonials-main-container">
-            <h1 className="Testimonials-heading">Voices of Gratitude</h1>
-            <p className="sub-heading">We value our community's feedback. Heartwarming messages from recipients, showcasing the positive impact Donor Connect has made.</p>
-            {feedback.length > 0 ? (
-                <div className="carousel">
-                    <button onClick={goToPrevious} className="carousel-control left">❮</button>
-                    <div className="carousel-inner-container">
-                        <div className="carousel-inner">
-                            {getVisibleFeedbacks().map((f, index) => (
-                                <div key={index} className="carousel-item active">
-                                    <div className="Testimonials-card">
-                                        <p className="Testimonial-feedback">
-                                            <p className="Testimonial-recp-msg">"{f.thanksmsg}"</p>
-                                            <p className="Testimonial-recp-name
+        <>
+            <div className="Testimonials-main-container">
+                <h1 className="Testimonials-heading">Voices of Gratitude</h1>
+                <p className="sub-heading">We value our community's feedback. Heartwarming messages from recipients, showcasing the positive impact Donor Connect has made.</p>
+                {feedback.length > 0 ? (
+                    <div className="carousel">
+                        <button onClick={goToPrevious} className="carousel-control left">❮</button>
+                        <div className="carousel-inner-container">
+                            <div className="carousel-inner">
+                                {getVisibleFeedbacks().map((f, index) => (
+                                    <div key={index} className="carousel-item active">
+                                        <div className="Testimonials-card">
+                                            <p className="Testimonial-feedback">
+                                                <p className="Testimonial-recp-msg">"{f.thanksmsg}"</p>
+                                                <p className="Testimonial-recp-name
                                         ">~ {f.recipient}</p>
-                                        </p>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
+                            <div className="carousel-dots">
+                                {Array.from({ length: totalViews }).map((_, index) => (
+                                    <span
+                                        key={index}
+                                        className={`dot ${index === currentIndex ? 'active' : ''}`}
+                                        onClick={() => setCurrentIndex(index)}
+                                    ></span>
+                                ))}
+                            </div>
                         </div>
-                        <div className="carousel-dots">
-                            {Array.from({ length: totalViews }).map((_, index) => (
-                                <span
-                                    key={index}
-                                    className={`dot ${index === currentIndex ? 'active' : ''}`}
-                                    onClick={() => setCurrentIndex(index)}
-                                ></span>
-                            ))}
-                        </div>
-                    </div>
-                    <button onClick={goToNext} className="carousel-control right">❯</button>
+                        <button onClick={goToNext} className="carousel-control right">❯</button>
 
-                </div>
-            ) : (
-                <div className="if-empty">
-                    <p>No Feedbacks Yet!</p>
-                </div>
-            )}
-        </div>
+                    </div>
+                ) : (
+                    <div className="if-empty">
+                        <p>No Feedbacks Yet!</p>
+                    </div>
+                )}
+            </div>
+            <Footer />
+        </>
     );
 }

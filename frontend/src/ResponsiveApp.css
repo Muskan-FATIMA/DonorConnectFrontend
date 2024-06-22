@@ -182,6 +182,9 @@
   .hamburger-container svg {
     font-size: 1.65rem;
   }
+  .profile{
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
   .profile-icon-small {
     height: 2.2rem;
     width: 2.2rem;
@@ -322,7 +325,7 @@
   .welcome-section-main-container {
     position: relative;
     overflow: hidden;
-    padding: 0 3%;
+    padding: 3%;
   }
   .welcome-content {
     width: 100%;
@@ -348,7 +351,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: 2rem auto 1rem auto;
+
+  }
+  .welcome-small-screen-img img{
+    animation: slideLeft 1s ease forwards;
+
   }
 }
 @media screen and (max-width: 480px) {
@@ -357,7 +365,6 @@
   }
   .welcome-content h1 {
     font-size: 3.2rem;
-    margin-bottom: 2rem;
   }
   .welcome-content h3 {
     font-size: 2.5rem;
@@ -391,6 +398,20 @@
   .about-section-top-slogan {
     font-size: 1.2rem;
     padding: 2rem;
+  }
+  .scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 10s linear infinite;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
   .about-content {
     padding: 2rem 2.5rem;
@@ -431,10 +452,12 @@
 }
 @media screen and (max-width: 768px) {
   .about-section-top-slogan {
-    font-size: 1.1rem;
-    padding: 1.5rem;
-    margin: 0 1rem;
-    transform: translateY(-40%);
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0;
+    transform: translateY(0);
+    box-shadow: none;
   }
   .about-section {
     background: linear-gradient(
@@ -443,7 +466,8 @@
       rgb(255, 175, 184)
     );
     justify-content: center;
-    padding: 5rem 0 3rem 0;
+    padding: 5rem 0;
+    margin-top:-1rem;
   }
   .about-content {
     width: 80%;
@@ -486,9 +510,9 @@
 }
 @media screen and (max-width: 480px) {
   .about-section-top-slogan {
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 1.2rem;
-    transform: translateY(-40%);
+    transform: translateY(0);
   }
   .about-content {
     width: 90%;
@@ -555,6 +579,7 @@
     font-size: 0.95rem;
     width: 70%;
   }
+
   .Testimonial-recp-name {
     font-size: 0.95rem;
   }
@@ -572,6 +597,9 @@
   }
   .sub-heading {
     width: 80%;
+  }
+  .Testimonials-card {
+    width: 50vw;
   }
   .carousel-control {
     width: 35px;
@@ -601,7 +629,7 @@
     box-shadow: none;
   }
   .Testimonials-card {
-    width: 200px;
+    width: 70vw;
   }
   .Testimonial-recp-name {
     font-size: 0.9rem;
@@ -609,9 +637,15 @@
   .Testimonial-recp-msg {
     font-size: 0.9rem;
   }
+  .if-empty {
+    padding: 1rem 0;
+
+  }
   .if-empty p {
     font-size: 1rem;
-    padding: 2rem 2.5rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.5);
+
   }
 }
 
@@ -672,39 +706,259 @@
 }
 @media screen and (max-width: 480px) {
   .form-page-container {
-    margin: 2rem auto;
+    margin: 3rem auto;
   }
   .form-main-container {
     padding: 1rem;
+    box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.2);
   }
   .form-heading {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   .form-container p {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
   .form-container input,
   .form-container select,
   .form-container textarea {
-    padding: 0.6rem;
-    margin: 0.6rem 0;
-    font-size: 0.7rem;
+    padding: 0.9rem;
+    margin: 0.8rem 0;
+    font-size: 0.9rem;
+    box-shadow: 0px 0px 2px 0 rgba(0,0,0,0.2);
   }
   .show-password {
     margin: -0.5rem 0 0 0.5rem;
   }
   #show-password-label {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
   }
   #error-text {
     font-size: 0.7rem;
     margin: -0.1rem 0 0.5rem 0.5rem;
   }
   .form-btn {
-    font-size: 0.9rem;
-    padding: 0.6rem;
+    font-size: 1.1rem;
+    padding: 0.9rem;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   }
   .reg-login-switch {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
+/* -------- RequestAddedPage --------- */
+@media screen and (max-width: 1200px) {
+  .request-added-container{
+    width: 50%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .request-added-container{
+    width: 60%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .request-added-container{
+    width: 80%;
+  }
+  .request-added-container h1{
+    font-size: 1.4rem;
+  }
+  .request-added-container p{
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .request-added-container{
+    width: 90%;
+    box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.5);
+    padding:1.5rem;
+
+  }
+  .request-added-container h1{
+    font-size: 1.2rem;
+  }
+  .request-added-container p{
+    font-size: 0.9rem;
+  }
+  .request-added-btn{
+    padding: 0.5rem 1rem;
+  }
+  .request-added-btn a{
+    font-size: 0.9rem;
+  }
+}
+
+
+/* -------- ViewRequestPage, MyRequestpage ------- */
+@media screen and (max-width: 1200px) {
+  .req-main-container {
+    padding: 2rem 0;
+  }
+  .req-cards-container {
+    gap: 1rem;
+    width: 100%;
+  }
+  .req-card {
+    padding: 1.2rem;
+  }
+  .req-card-footer {
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  .req-heading {
+    font-size: 2.3rem;
+  }
+  .req-cards-container {
+    margin-top: 2rem;
+  }
+  .req-card {
+    width: 45%;
+  }
+  .feedback-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+  }
+  .close-button {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .req-main-container {
+    padding: 1rem;
+  }
+  .req-heading {
+    font-size: 2rem;
+  }
+  .req-cards-container {
+    width: 80%;
+    justify-content: space-around;
+  }
+  .req-card {
+    width: 100%;
+  }
+  .req-card-header h2 {
+    font-size: 1.5rem;
+  }
+  .req-card-body p {
+    font-size: 0.95rem;
+  }
+  .req-card {
+    padding: 0.9rem;
+  }
+  .accepted-badge {
+    padding: 6px 10px;
+  }
+  .req-card-edit-btn a {
+    margin-right: 0.7rem;
+  }
+  .feedback-button-container {
+    right: 2px;
+  }
+  .feedback-button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1rem;
+  }
+  .close-button {
+    font-size: 1.1rem;
+    right: 5px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .req-main-container {
+    padding: 1.5rem 1rem;
+  }
+  .req-heading {
+    font-size: 1.8rem;
+  }
+  .req-card{
+    box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.5);
+
+  }
+  .req-cards-container {
+    width: 95%;
+    margin-top: 1.5rem;
+  }
+  .req-card-header h2 {
+    font-size: 1.3rem;
+  }
+  .req-card-body p {
+    font-size: 0.9rem;
+  }
+  .req-card-edit-btn svg {
+    width: 1.2rem;
+  }
+  .req-card-delete-btn svg {
+    width: 1.2rem;
+  }
+  .feedback-button-container {
+    top: 40vh;
+    left: -2px;
+    position: fixed;
+  }
+  .feedback-button {
+    writing-mode: vertical-lr;
+    padding: 1.3rem 0.5rem;
+  }
+  .close-button {
+    top: 85%;
+    right: 2px;
+  }
+}
+
+/*-------- MyProfilePage  --------*/
+@media screen and (max-width: 1200px) {
+  .profile-container{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .profile-container{
+    width: 100%;
+    box-shadow: 0px 0px 10px 0 rgba(0,0,0,0.5);
+
+  }
+}
+@media screen and (max-width: 768px) {
+  .profile-main-container{
+    width: 65vw;
+  }
+  .profile-details img{
+    width: 170px;
+    margin-bottom: 1.5rem; 
+  }
+  .profile-details h2{
+    font-size: 1.4rem;
+  }
+  .profile-details p{
+    font-size: 1rem;
+  }
+.edit-profile-btn svg {
+  font-size: 1.8rem;
+}
+}
+@media screen and (max-width: 480px) {
+  .profile-main-container{
+    width:100vw;
+    height: 60vh;
+    margin: 1rem 0;
+  }
+  .profile-details img{
+    width: 165px;
+    margin-bottom: 1.5rem; 
+  }
+  .profile-details h2{
+    font-size: 1.3rem;
+    text-shadow: none;
+  }
+  .profile-details p{
+    font-size: 1rem;
+    text-shadow: none;
+  }
+  .edit-profile-btn{
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+  }
+.edit-profile-btn svg {
+  font-size: 1.7rem;
+}
+} 

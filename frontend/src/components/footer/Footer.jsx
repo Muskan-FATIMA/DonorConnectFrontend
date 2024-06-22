@@ -76,8 +76,8 @@ export default function Footer() {
                             :
                             <>
                                 <Link to="/add-request">Add Request</Link>
-                                <Link to="/view-request">View Request</Link>
                                 <Link to="/my-request">My Request</Link>
+                                <Link to="/view-request">View Request</Link>
                                 <Link to="/contact">Contact Us</Link>
                             </>
                         }
@@ -87,7 +87,7 @@ export default function Footer() {
                     <h2 className="subscribe-newsletter">Subscribe to our Newsletter</h2>
                     <form className="newsletter-container" onSubmit={handleSubmit}>
                         <MailOutlineIcon style={{ color: "black" }} />
-                        <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email-id..." required />
+                        <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email-id..." required autoComplete="off" />
                         <button type="submit"><ArrowForwardIcon /></button>
                     </form>
                     <div className="social-links-container ">

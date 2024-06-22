@@ -7,18 +7,16 @@ import { jwtDecode } from 'jwt-decode';
 import { Link } from 'react-router-dom';
 
 export default function MyProfile() {
+    const { authTokens } = useContext(AuthContext) || {};
+    const baseURL = "https://donorconnect.pythonanywhere.com";
+
+    const [id, setId] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [profile, setProfile] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
-    const [id, setId] = useState('');
-
-    const [profile, setProfile] = useState(null);
-
-    const { authTokens } = useContext(AuthContext) || {};
-
-    const baseURL = "https://donorconnect.pythonanywhere.com";
 
     useEffect(() => {
         if (authTokens && authTokens.access) {
@@ -53,16 +51,24 @@ export default function MyProfile() {
                 }
             } catch (error) {
                 console.error('Error fetching profile:', error);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchProfile();
     }, [id]);
 
+    if (loading) {
+        return <div style={{ textAlign: "center", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", }}>Loading...</div>;
+    }
+
     if (!profile) {
-        return <div className="if-empty">
-            <p>Request not found!</p>
-        </div>;
+        return (
+            <div className="if-empty">
+                <p>Request not found!</p>
+            </div>
+        );
     }
 
     return (
@@ -76,11 +82,11 @@ export default function MyProfile() {
                     </button>
                 </div>
                 <div className="profile-details">
-                    <img src={userImg} height={180} width={180} style={{ backgroundColor: "rgb(173, 14, 14)", borderRadius: "50%", marginBottom: "2.2rem" }} />
-                    <h2 style={{ textShadow: "2px 2px 3px rgba(0, 0, 0, 0.3)" }}>{profile.fullname} </h2>
-                    <p style={{ fontWeight: "400", fontSize: "1.2rem", textShadow: "2px 2px 3px rgba(0, 0, 0, 0.2)" }}>Blood Grp : ({profile.bldGrp})</p>
+                    <img src={userImg} alt="User" />
+                    <h2>{profile.fullname}</h2>
+                    <p>Blood Group: {profile.bldGrp}</p>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }

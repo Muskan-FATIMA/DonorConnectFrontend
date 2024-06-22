@@ -25,6 +25,8 @@ export default function MyRequest() {
 
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         if (authTokens && authTokens.access) {
             try {
@@ -54,6 +56,8 @@ export default function MyRequest() {
                 }
             } catch (error) {
                 console.error('Error fetching requests:', error);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -72,7 +76,7 @@ export default function MyRequest() {
             if (response.status === 204) {
                 const updatedRequests = requestData.filter(req => req.id !== deleteId);
                 setRequestData(updatedRequests);
-                navigate("/feedback")
+                navigate("/")
                 swal.fire({
                     title: 'Request Deleted Successfully',
                     icon: 'success',
@@ -126,21 +130,25 @@ export default function MyRequest() {
         setShowFeedbackButton(false);
     };
 
+    if (loading) {
+        return <div style={{ textAlign: "center", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", }}>Loading...</div>;
+    }
+
     return (
         <div className="req-main-container">
-            <div className={`feedback-button-container ${showFeedbackButton ? 'show' : ''}`}>
-                <button className="close-button" onClick={handleCloseButton}>×</button>
-                <Link to="/feedback">
-                    <button className="feedback-button">Give Feedback</button>
-                </Link>
-            </div>
             {requestData.length > 0 ? (
                 <>
-                    <h2 className='req-heading'>MY REQUESTS...</h2>
+                    <div className={`feedback-button-container ${showFeedbackButton ? 'show' : ''}`}>
+                        <Link to="/feedback">
+                            <button className="feedback-button">Feedback</button>
+                        </Link>
+                        <button className="close-button" onClick={handleCloseButton}>×</button>
+                    </div>
+                    <h2 className='req-heading'>MY REQUESTS</h2>
                     <div className="req-cards-container">
                         {requestData.map((req, index) => (
                             <div className="req-card" key={index}>
-                                <div className="req-card-header">
+                                <div className="req-card-header" style={req.acceptedBy && { justifyContent: "space-between" }}>
                                     <h2>{req.recipientName}</h2>
                                     {req.acceptedBy && (
                                         <div className="accepted-badge">ACCEPTED</div>
@@ -154,22 +162,16 @@ export default function MyRequest() {
                                     <p><strong>Location:</strong> {req.bldDonationLocation}</p>
                                 </div>
                                 <div className="req-card-footer">
-                                    {req.acceptedBy ? (
-                                        <div className="req-card-btn" onClick={() => handleDelete(req.id)}>
-                                            <DeleteIcon />
+                                    {!req.acceptedBy && (
+                                        <div className="req-card-edit-btn">
+                                            <Link to="/add-request" state={{ req }}>
+                                                <EditIcon />
+                                            </Link>
                                         </div>
-                                    ) : (
-                                        <>
-                                            <div className="req-card-btn">
-                                                <Link to="/add-request" state={{ req }}>
-                                                    <EditIcon />
-                                                </Link>
-                                            </div>
-                                            <div className="req-card-btn" onClick={() => handleDelete(req.id)}>
-                                                <DeleteIcon />
-                                            </div>
-                                        </>
                                     )}
+                                    <div className="req-card-delete-btn" onClick={() => handleDelete(req.id)}>
+                                        <DeleteIcon />
+                                    </div>
                                 </div>
                             </div>
                         ))}

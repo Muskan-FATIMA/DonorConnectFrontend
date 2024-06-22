@@ -349,7 +349,7 @@ hr {
   height: 65%;
   animation: slideLeft 1s ease forwards;
 }
-.welcome-small-screen-img{
+.welcome-small-screen-img {
   display: none;
 }
 
@@ -566,7 +566,7 @@ hr {
   text-align: justify;
   margin-bottom: 1rem;
 }
-.webguide-steps-container{
+.webguide-steps-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -588,8 +588,7 @@ hr {
   padding: 3rem 8rem;
   text-align: justify;
 }
-.webguide-steps-inner-content
-h4 {
+.webguide-steps-inner-content h4 {
   color: var(--red-color);
   margin: 1rem 0 0.1rem 0;
   font-size: 1.3rem;
@@ -709,13 +708,13 @@ h4 {
 .dot.active {
   background-color: #717171;
 }
-.if-empty{
-  margin-bottom: 2rem ;
+.if-empty {
+  margin-bottom: 2rem;
   padding: 3rem;
   color: var(--red-color);
-} 
-.if-empty p{
-  box-shadow: 2px 2px 2px 5px rgba(63, 6, 6, 0.1); 
+}
+.if-empty p {
+  box-shadow: 2px 2px 2px 5px rgba(63, 6, 6, 0.1);
   padding: 2rem 4rem;
   border-radius: 6px;
   font-size: 1.3rem;
@@ -825,7 +824,7 @@ ul {
   color: var(--red-color);
   font-weight: 500;
 }
-#form-subheading{
+#form-subheading {
   color: var(--text-color);
 }
 .form-container input,
@@ -900,23 +899,64 @@ ul {
   font-weight: 600;
 }
 
+/* -------- RequestAddedPage --------- */
+.request-added-page-container{
+  width: 100%;
+  height: 100vh;
+}
+.request-added-container{
+  width: 40%;
+  margin: 3rem auto;
+  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.42);
+padding: 2rem 3rem;
+border-radius: 10px;
+text-align: center;
+}
+.request-added-container h1{
+  font-size: 1.6rem;
+  color:var(--red-color);
+  margin-bottom: 2rem;
+}
+.request-added-container p{
+  color: var(--text-color);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0.5rem 0;
+}
+.request-added-btn{
+  padding: 0.7rem 1.2rem;
+  margin-top: 1rem;
+  background-color: var(--red-color);
+  border: none;
+border-radius: 10px;
+cursor: pointer;
+}
+.request-added-btn a{
+  text-decoration: none;
+  color: var(--light-color);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+
 /* ------view-request & my-request--------- */
 .req-main-container {
   width: 100%;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 .req-heading {
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2.5rem;
   color: var(--red-color);
-  margin-bottom: 1.2rem;
 }
 .req-cards-container {
-  margin-top: 5rem;
+  width: 90%;
+  margin: auto;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 5rem;
@@ -924,36 +964,41 @@ ul {
 .req-card {
   width: 30%;
   background-color: transparent;
-  padding: 1.8rem;
+  padding: 1rem 1.5rem;
   border-radius: 10px;
   box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.42);
 }
 .req-card-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
- color: var(--red-color);
+  color: black;
 }
 .req-card-body p {
   margin-bottom: 0.3rem;
   color: #555;
 }
 .req-card-footer {
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: flex-end;
-  gap: 2rem;
 }
-.req-card-btn {
-  width: fit-content;
-  color: var(--red-color);
+.req-card-edit-btn a {
+  color: var(--text-color);
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
 }
-.req-card-btn a {
-  text-decoration: none;
+.req-card-edit-btn svg {
+  width: 1.4rem;
+}
+.req-card-delete-btn svg {
   color: var(--red-color);
+  width: 1.4rem;
+  cursor: pointer;
 }
 .accepted-badge {
   background-color: #28a745;
@@ -962,6 +1007,45 @@ ul {
   font-weight: bold;
   padding: 10px;
   border-radius: 5px;
+}
+.feedback-button-container {
+  width: fit-content;
+  position: absolute;
+  top: 14vh;
+  right: 10px;
+  opacity: 0;
+  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.feedback-button-container.show {
+  opacity: 1;
+}
+.feedback-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+}
+.feedback-button:hover {
+  background-color: #218838;
+}
+.close-button {
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 10px;
 }
 .view-card-btn {
   width: fit-content;
@@ -974,10 +1058,10 @@ ul {
   font-size: 1rem;
   font-weight: bold;
   transition: 0.5s ease;
- box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 .view-card-btn a {
- text-decoration: none;
+  text-decoration: none;
   color: var(--light-color);
 }
 .view-card-btn:hover {
@@ -987,9 +1071,10 @@ ul {
 /* -------- MyProfilePage ------- */
 .profile-page-container {
   width: 100%;
-  height: 100%;
+  height: 80vh;
   background: var(--light-color);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -1002,7 +1087,6 @@ ul {
   padding: 2rem;
   width: 50vw;
   height: 80vh;
-  box-sizing: border-box;
 }
 .profile-container {
   position: relative;
@@ -1010,7 +1094,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:var(--light-color);
+  background-color: var(--light-color);
   border-radius: 10px;
   color: var(--red-color);
   padding: 1rem;
@@ -1027,6 +1111,21 @@ ul {
   color: var(--red-color);
   font-size: 1rem;
   font-weight: 600;
+}
+.profile-details img{
+  background-color: rgb(173, 14, 14); 
+  border-radius: 50%; 
+  margin-bottom: 2.2rem; 
+  width: 200px;
+}
+.profile-details h2{
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+.profile-details p{
+  font-weight: 400; 
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 .edit-btn {
   position: absolute;
@@ -1049,80 +1148,6 @@ ul {
   font-size: 2rem;
   color: var(--red-color);
 }
-.edit-profile-btn a {
-  text-decoration: none;
-  color: var(--red-color);
-}
 .edit-profile-btn:hover {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-}
-.profile-page-btn {
-  width: 35%;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 1rem 1rem 1rem 1rem;
-  background-color:green;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin-top: 3rem;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  transition: 0.3s ease;
-}
-.profile-page-btn a {
-  text-decoration: none;
-  color: var(--light-color);
-}
-.profile-page-btn:hover {
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-}
-.req-accepted-badge {
-  background-color: var(--light-color);
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 26%;
-  right: 36%;
-  border: 2px solid var(--red-color);
-}
-
-/* -------- Feedback button --------- */
-.feedback-button-container {
-  position: absolute;
-  top: 14vh;
-  right: 10px;
-  opacity: 0;
-  transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-.feedback-button-container.show {
-  opacity: 1;
-}
-.feedback-button {
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 5px 0 0 5px;
-  padding: 1rem 2.5rem;
-  cursor: pointer;
-  font-size: 1.4rem;
-  font-weight: 600;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-  writing-mode: horizontal-tb;
-  text-orientation: mixed;
-}
-.feedback-button:hover {
-  background-color: #218838;
-}
-.close-button {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 0;
-  right: 10px;
 }

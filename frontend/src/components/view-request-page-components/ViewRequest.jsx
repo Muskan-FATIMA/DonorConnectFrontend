@@ -14,6 +14,8 @@ export default function ViewRequest() {
 
     const [requestData, setRequestData] = useState([]);
 
+    const [loading, setLoading] = useState(true);
+
     const [loadingStates, setLoadingStates] = useState({});
 
     const { authTokens } = useContext(AuthContext) || {};
@@ -36,6 +38,8 @@ export default function ViewRequest() {
 
     useEffect(() => {
         const fetchRequest = async () => {
+            setLoading(true);
+
             try {
                 const response = await axios.get(`${baseURL}/api/requests/request/`, {
                     headers: {
@@ -48,6 +52,8 @@ export default function ViewRequest() {
                 }
             } catch (error) {
                 console.error('Error fetching requests:', error);
+            } finally {
+                setLoading(false);
             }
         };
         if (id) {
@@ -98,6 +104,10 @@ export default function ViewRequest() {
             setLoadingStates(prev => ({ ...prev, [requestId]: false }));
         }
     };
+    if (loading) {
+        return <div style={{ textAlign: "center", width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", }}>Loading...</div>;
+
+    }
 
     return (
         <div className="req-main-container">

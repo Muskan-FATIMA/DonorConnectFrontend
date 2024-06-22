@@ -24,8 +24,8 @@ export default function LoginPageForm() {
         <div className="form-main-container">
             <form className="form-container" onSubmit={handleSubmit}>
                 <h1 className="form-heading">LOGIN</h1>
-                <input type="text" name='username' value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Username*' required />
-                <input type={showPassword ? "text" : "password"} name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder=' Password*' required />
+                <input type="text" name='username' value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Username*' required autoComplete="off" />
+                <input type={showPassword ? "text" : "password"} name='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder=' Password*' required autoComplete="off" />
                 <div className="show-password">
                     <input type="checkbox" id="show-password-input" checked={showPassword} onChange={() => setShowPassword(!showPassword)} />
                     <label id="show-password-label">Show Password</label>

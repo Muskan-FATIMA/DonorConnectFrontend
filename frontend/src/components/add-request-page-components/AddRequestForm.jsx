@@ -75,8 +75,8 @@ export default function AddRequestForm() {
             <div className="form-main-container">
                 <h1 className="form-heading">CREATE REQUEST</h1>
                 <form className="form-container" onSubmit={handleSubmit}>
-                    <input type="text" name="recipientName" value={recipientName} onChange={(e) => setRecipientName(e.target.value)} placeholder="Recipient's Name*" required />
-                    <input type="number" name="recipientAge" value={recipientAge} onChange={(e) => setRecipientAge(e.target.value)} placeholder="Recipient's Age*" required />
+                    <input type="text" name="recipientName" value={recipientName} onChange={(e) => setRecipientName(e.target.value)} placeholder="Recipient's Name*" required autoComplete="off" />
+                    <input type="number" name="recipientAge" value={recipientAge} onChange={(e) => setRecipientAge(e.target.value)} placeholder="Recipient's Age*" required autoComplete="off" />
                     <select className="bld-grp" name="bldGrp" onChange={(e) => setBldGrp(e.target.value)} value={bldGrp} style={{ color: bldGrp === "" ? "#757575" : "black" }} required>
                         <option value="" disabled>Select Recipient's Blood Group*</option>
                         <option value="A+">A+</option>
@@ -90,8 +90,8 @@ export default function AddRequestForm() {
                     </select>
                     <p style={{ margin: "0.5rem 0 0 0.5rem" }} >Blood Required Before*</p>
                     <input type="date" name="requiredByDate" value={bldRequiredBeforeDate} onChange={(e) => setBldRequiredBeforeDate(e.target.value)} style={{ marginTop: "0.1rem", color: bldRequiredBeforeDate === "" ? "#757575" : "black" }} required />
-                    <input type="text" name="recipientAddress" value={bldDonationLocation} onChange={(e) => setBldDonationLocation(e.target.value)} placeholder="Full Address*" required />
-                    <input type="number" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Contact Number*" required />
+                    <input type="text" name="recipientAddress" value={bldDonationLocation} onChange={(e) => setBldDonationLocation(e.target.value)} placeholder="Full Address*" required autoComplete="off" />
+                    <input type="number" name="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Contact Number*" required autoComplete="off" />
                     {isLoading && <div style={{ textAlign: "center", color: "black" }}>Adding your request, please wait...</div>}
                     <button type="submit" className="form-btn">Done</button>
                 </form>

@@ -81,8 +81,8 @@ export default function NavBar() {
                     :
                     <>
                         <NavLink to="/add-request">Add Request</NavLink>
-                        <NavLink to="/view-request"><span className="view-req-link">View Request<span className="view-request-badge">{length}</span></span></NavLink>
                         <NavLink to="/my-request">My Request</NavLink>
+                        <NavLink to="/view-request"><span className="view-req-link">View Request<span className="view-request-badge">{length}</span></span></NavLink>
                         <NavLink to="/contact">Contact Us</NavLink>
                         <a onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</a>
                     </>
@@ -112,8 +112,8 @@ export default function NavBar() {
                                     :
                                     <>
                                         <NavLink to="/add-request">Add Request</NavLink>
-                                        <NavLink to="/view-request"><span className="view-req-link">View Request<span className="view-request-badge">{length}</span></span></NavLink>
                                         <NavLink to="/my-request">My Request</NavLink>
+                                        <NavLink to="/view-request"><span className="view-req-link">View Request<span className="view-request-badge">{length}</span></span></NavLink>
                                         <NavLink to="/contact">Contact Us</NavLink>
                                         <a onClick={logoutUser} style={{ cursor: "pointer" }}>Logout</a>
                                     </>

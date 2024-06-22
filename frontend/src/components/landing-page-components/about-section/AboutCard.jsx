@@ -1,8 +1,6 @@
 import cardImg from "../../../assets/about-image.jpg"
 import missionImg from "../../../assets/mission.jpg"
-// import missionImg2 from "../../../assets/mission2.jpg"
 import visionImg from "../../../assets/im1.jpg"
-// import storyImg from "../../../assets/im3.jpg"
 
 function AboutCard() {
     return (

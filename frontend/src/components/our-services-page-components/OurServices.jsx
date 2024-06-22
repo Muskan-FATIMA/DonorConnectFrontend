@@ -1,7 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
 
 import { useEffect } from 'react';
-import guideImg1 from "../../assets/services-main.png"
+import guideImg1 from "../../assets/services-main.jpg"
 import { Link } from 'react-router-dom'
 // import guideImg2 from "../../assets/homepage2.png"
 // import guideImg3 from "../../assets/viewreq.png"

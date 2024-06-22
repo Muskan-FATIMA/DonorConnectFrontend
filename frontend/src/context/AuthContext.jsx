@@ -218,7 +218,7 @@ const AuthProvider = ({ children }) => {
                 });
             }
             if (response.status === 201 || response.status === 200) {
-                navigate('/my-request');
+                navigate('/request-added');
                 swal.fire({
                     title: "Blood Request Added Successfully",
                     icon: "success",
